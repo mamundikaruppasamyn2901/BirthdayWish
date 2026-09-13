@@ -1,0 +1,2617 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, viewport-fit=cover" />
+  <title>Happy Birthday My Love 💙 | The Ultimate Interactive Sapphire Surprise</title>
+  <meta name="description"
+    content="A luxury aesthetic digital birthday surprise story for both mobile and desktop in royal sapphire blue." />
+  <link rel="icon" type="image/svg+xml"
+    href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💙</text></svg>" />
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          screens: {
+            'xs': '375px',
+          },
+          colors: {
+            sapphire: {
+              50: '#f0f7ff',
+              100: '#e0effe',
+              200: '#bae0fd',
+              300: '#7cc7fb',
+              400: '#38a9f8',
+              500: '#0e8ce9',
+              600: '#026fc7',
+              700: '#0358a1',
+              800: '#074b84',
+              900: '#0b3f6f',
+              950: '#07284a',
+            },
+            royal: {
+              bg: '#030712',
+              card: 'rgba(7, 24, 52, 0.85)',
+              border: 'rgba(56, 189, 248, 0.3)',
+              glow: '#00d2ff',
+              midnight: '#051329',
+              ice: '#38bdf8'
+            }
+          },
+          fontFamily: {
+            serif: ['"Playfair Display"', 'Georgia', 'serif'],
+            cursive: ['"Great Vibes"', '"Dancing Script"', 'cursive'],
+            sans: ['"Outfit"', '"Plus Jakarta Sans"', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600;700&family=Great+Vibes&family=Outfit:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet">
+
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <!-- jQuery, Three.js, GSAP & Canvas Confetti -->
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
+
+  <style>
+    :root {
+      --bg-primary: #030712;
+      --color-sapphire: #0e8ce9;
+      --color-cyan: #38bdf8;
+    }
+
+    * {
+      box-sizing: border-box;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    html,
+    body {
+      background-color: var(--bg-primary);
+      color: #f8fafc;
+      font-family: 'Outfit', 'Plus Jakarta Sans', sans-serif;
+      overflow-x: hidden;
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      min-height: 100dvh;
+      user-select: none;
+      -webkit-user-select: none;
+      touch-action: pan-y pinch-zoom;
+    }
+
+    input, textarea, select {
+      user-select: text !important;
+      -webkit-user-select: text !important;
+    }
+
+    ::-webkit-scrollbar {
+      width: 4px;
+      height: 4px;
+    }
+
+    ::-webkit-scrollbar-track {
+      background: #020617;
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: #0284c7;
+      border-radius: 9999px;
+    }
+
+    .no-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+
+    .no-scrollbar {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+
+    .glass-panel {
+      background: rgba(6, 18, 41, 0.88);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid rgba(56, 189, 248, 0.28);
+      box-shadow: 0 10px 35px 0 rgba(0, 0, 0, 0.65), inset 0 0 15px rgba(56, 189, 248, 0.05);
+    }
+
+    .glass-panel-glow {
+      background: rgba(8, 28, 64, 0.92);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+      border: 1px solid rgba(56, 189, 248, 0.5);
+      box-shadow: 0 0 35px rgba(56, 189, 248, 0.3), inset 0 0 20px rgba(56, 189, 248, 0.1);
+    }
+
+    .glass-pill {
+      background: rgba(255, 255, 255, 0.08);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid rgba(56, 189, 248, 0.35);
+    }
+
+    .text-glow-blue {
+      text-shadow: 0 0 18px rgba(56, 189, 248, 0.85), 0 0 35px rgba(14, 140, 233, 0.6);
+    }
+
+    .floating-particle {
+      position: absolute;
+      pointer-events: none;
+      animation: floatUp 12s linear infinite;
+      z-index: 1;
+    }
+
+    @keyframes floatUp {
+      0% {
+        transform: translateY(105vh) scale(0.6) rotate(0deg);
+        opacity: 0;
+      }
+
+      15% {
+        opacity: 0.8;
+      }
+
+      85% {
+        opacity: 0.8;
+      }
+
+      100% {
+        transform: translateY(-15vh) scale(1.1) rotate(45deg);
+        opacity: 0;
+      }
+    }
+
+    .shooting-star {
+      position: absolute;
+      width: 100px;
+      height: 2px;
+      background: linear-gradient(90deg, #38bdf8, transparent);
+      opacity: 0;
+      transform: rotate(-35deg);
+      animation: shoot 7s ease-in-out infinite;
+      pointer-events: none;
+    }
+
+    @keyframes shoot {
+      0% {
+        transform: translate(0, 0) rotate(-35deg);
+        opacity: 0;
+      }
+
+      5% {
+        opacity: 1;
+      }
+
+      15% {
+        transform: translate(-250px, 250px) rotate(-35deg);
+        opacity: 0;
+      }
+
+      100% {
+        opacity: 0;
+      }
+    }
+
+    .chapter-slide {
+      transition: opacity 0.35s ease, transform 0.35s ease;
+      width: 100%;
+      max-width: 100%;
+    }
+
+    .chapter-slide.hidden-chapter {
+      display: none !important;
+      opacity: 0;
+      transform: scale(0.98) translateY(12px);
+    }
+
+    .chapter-slide.active-chapter {
+      display: flex !important;
+      opacity: 1;
+      transform: scale(1) translateY(0);
+    }
+
+    #scratch-canvas {
+      cursor: grab;
+      touch-action: none;
+      -webkit-touch-callout: none;
+      user-select: none;
+      -webkit-user-select: none;
+    }
+
+    @keyframes pulseGlow {
+
+      0%,
+      100% {
+        opacity: 0.25;
+        transform: scale(1);
+      }
+
+      50% {
+        opacity: 0.6;
+        transform: scale(1.08);
+      }
+    }
+
+    .pulse-glow {
+      animation: pulseGlow 5s ease-in-out infinite;
+    }
+
+    @keyframes shake {
+
+      0%,
+      100% {
+        transform: translateX(0);
+      }
+
+      20%,
+      60% {
+        transform: translateX(-6px);
+      }
+
+      40%,
+      80% {
+        transform: translateX(6px);
+      }
+    }
+
+    .animate-shake {
+      animation: shake 0.4s ease-in-out;
+    }
+
+    @keyframes floatLantern {
+      0% {
+        transform: translateY(0px) rotate(0deg);
+      }
+
+      50% {
+        transform: translateY(-12px) rotate(2deg);
+      }
+
+      100% {
+        transform: translateY(0px) rotate(0deg);
+      }
+    }
+
+    .floating-lantern {
+      animation: floatLantern 4s ease-in-out infinite;
+    }
+
+    .eq-bar {
+      animation: bounceEq 1s ease-in-out infinite alternate;
+    }
+
+    @keyframes bounceEq {
+      0% {
+        height: 3px;
+      }
+
+      100% {
+        height: 14px;
+      }
+    }
+
+    .touch-sparkle {
+      position: fixed;
+      pointer-events: none;
+      z-index: 99999;
+      animation: popSparkle 0.75s ease-out forwards;
+    }
+
+    @keyframes popSparkle {
+      0% {
+        transform: scale(0.4) translate(0, 0);
+        opacity: 1;
+      }
+
+      100% {
+        transform: scale(1.3) translate(var(--tx, 0), var(--ty, -25px));
+        opacity: 0;
+      }
+    }
+
+    #wheel-canvas {
+      display: block;
+      margin: 0 auto;
+      transform-origin: 50% 50%;
+    }
+
+    .action-btn {
+      cursor: pointer !important;
+      touch-action: manipulation;
+      -webkit-tap-highlight-color: transparent;
+      -webkit-user-select: none;
+      user-select: none;
+    }
+
+    .action-btn:active {
+      transform: scale(0.96);
+    }
+
+    .polaroid-aesthetic {
+      background: linear-gradient(145deg, rgba(13, 33, 66, 0.92), rgba(5, 17, 36, 0.96));
+      border: 1px solid rgba(56, 189, 248, 0.35);
+      border-radius: 1.25rem;
+      box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.75), 0 0 12px rgba(56, 189, 248, 0.1);
+      transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+      position: relative;
+    }
+
+    @media (hover: hover) {
+      .polaroid-aesthetic:hover {
+        transform: translateY(-6px) scale(1.02) !important;
+        border-color: rgba(56, 189, 248, 0.8);
+        box-shadow: 0 18px 35px -5px rgba(0, 0, 0, 0.85), 0 0 22px rgba(56, 189, 248, 0.35);
+        z-index: 10;
+      }
+    }
+
+    .washi-tape {
+      position: absolute;
+      top: -8px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 50px;
+      height: 16px;
+      background: rgba(56, 189, 248, 0.25);
+      backdrop-filter: blur(4px);
+      border: 1px dashed rgba(255, 255, 255, 0.4);
+      border-radius: 2px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+      pointer-events: none;
+      z-index: 2;
+    }
+
+    .safe-top-padding {
+      padding-top: max(env(safe-area-inset-top, 0px), 8px);
+    }
+
+    .safe-nav-dock {
+      padding-top: 6px;
+      padding-bottom: max(env(safe-area-inset-bottom, 0px), 8px);
+      padding-left: 10px;
+      padding-right: 10px;
+    }
+
+    .safe-main-content {
+      padding-bottom: max(calc(env(safe-area-inset-bottom, 0px) + 95px), 110px);
+    }
+
+    .dot-btn {
+      background: transparent;
+      border: none;
+      outline: none;
+      touch-action: manipulation;
+      -webkit-tap-highlight-color: transparent;
+    }
+  </style>
+</head>
+
+<body class="selection:bg-cyan-500 selection:text-white flex flex-col min-h-[100dvh]">
+
+  <div id="custom-cursor" class="pointer-events-none fixed inset-0 z-[9999] overflow-hidden hidden md:block">
+    <div id="cursor-dot"
+      class="fixed w-7 h-7 rounded-full bg-cyan-400/30 border border-cyan-300 -translate-x-1/2 -translate-y-1/2 flex items-center justify-center transition-transform duration-75 shadow-[0_0_20px_rgba(56,189,248,0.85)]">
+      <span class="text-xs">✨</span>
+    </div>
+  </div>
+
+  <div id="particles-container" class="fixed inset-0 pointer-events-none z-0 overflow-hidden">
+    <div class="shooting-star top-16 right-20" style="animation-delay: 1s;"></div>
+    <div class="shooting-star top-1/3 right-1/4" style="animation-delay: 4s;"></div>
+    <div class="shooting-star top-2/3 right-12" style="animation-delay: 2.5s;"></div>
+    <div
+      class="absolute top-1/4 -left-32 w-72 sm:w-[36rem] h-72 sm:h-[36rem] bg-blue-600/15 rounded-full blur-3xl pulse-glow">
+    </div>
+    <div
+      class="absolute top-2/3 -right-32 w-72 sm:w-[38rem] h-72 sm:h-[38rem] bg-cyan-600/15 rounded-full blur-3xl pulse-glow"
+      style="animation-delay: 2.5s;"></div>
+  </div>
+
+  <!-- Top Responsive Header Bar -->
+  <header
+    class="fixed top-2 sm:top-3 left-1/2 -translate-x-1/2 z-50 w-[96%] max-w-4xl rounded-full glass-panel py-2 px-3 sm:py-2.5 sm:px-6 shadow-2xl safe-top-padding">
+    <div class="flex items-center justify-between gap-2">
+      <div class="flex items-center gap-2 min-w-0">
+        <div
+          class="w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-gradient-to-tr from-blue-600 to-cyan-400 flex items-center justify-center shadow-md shrink-0 cursor-pointer"
+          onclick="goToChapter(1)">
+          <i class="fa-solid fa-heart text-white text-[11px] sm:text-xs animate-pulse"></i>
+        </div>
+        <div class="min-w-0 cursor-pointer action-btn active:scale-95 transition-all" onclick="openChapterMenu()" title="Tap to select chapter">
+          <span id="nav-partner-name"
+            class="font-serif font-bold text-xs sm:text-sm tracking-wide bg-gradient-to-r from-white via-cyan-100 to-sky-300 bg-clip-text text-transparent block truncate max-w-[130px] xs:max-w-[160px] sm:max-w-none">
+            For Papa 💙
+          </span>
+          <span id="chapter-indicator-text"
+            class="text-[9px] sm:text-[10px] text-cyan-300/90 font-mono block truncate flex items-center gap-1">
+            <span>Chapter 1 of 11</span>
+            <i class="fa-solid fa-caret-down text-[8px] text-cyan-400"></i>
+          </span>
+        </div>
+      </div>
+
+      <div class="hidden sm:flex items-center gap-1.5">
+        <select id="quick-chapter-select" onchange="goToChapter(parseInt(this.value))"
+          class="bg-black/60 text-cyan-200 border border-cyan-500/40 rounded-full px-2.5 py-1 text-xs outline-none focus:border-cyan-300 cursor-pointer">
+          <option value="1">1. The Welcome</option>
+          <option value="2">2. Secret Vault</option>
+          <option value="3">3. 3D Gift Box</option>
+          <option value="4">4. Cherished Snapshots</option>
+          <option value="5">5. Scratch Card</option>
+          <option value="6">6. Quiz & Coupons</option>
+          <option value="7">7. Sky Lantern Flight</option>
+          <option value="8">8. Love Letter & Envelopes</option>
+          <option value="9">9. Wheel of Love</option>
+          <option value="10">10. Birthday Cake</option>
+          <option value="11">11. Grand Finale</option>
+        </select>
+      </div>
+
+      <div class="flex items-center gap-1.5 sm:gap-2 shrink-0">
+        <!-- Prominent One-Click Play/Mute Music Button -->
+        <button id="music-toggle-btn"
+          class="action-btn flex items-center gap-1 sm:gap-1.5 px-2.5 py-1.5 sm:px-3 sm:py-1.5 rounded-full bg-cyan-500/20 hover:bg-cyan-500/30 text-cyan-200 border border-cyan-400/40 text-xs transition-all shadow-[0_0_12px_rgba(56,189,248,0.3)]">
+          <div id="eq-container" class="flex items-end gap-0.5 h-2.5 sm:h-3">
+            <span class="eq-bar w-0.5 bg-cyan-300 rounded-full" style="animation-duration: 0.6s;"></span>
+            <span class="eq-bar w-0.5 bg-cyan-300 rounded-full" style="animation-duration: 0.9s;"></span>
+            <span class="eq-bar w-0.5 bg-cyan-300 rounded-full" style="animation-duration: 0.5s;"></span>
+          </div>
+          <i id="music-icon" class="fa-solid fa-volume-high text-[11px] sm:text-xs text-cyan-300 animate-pulse"></i>
+          <span id="music-btn-text" class="font-medium text-[11px] sm:text-xs">Music ON 🎵</span>
+        </button>
+
+        <button id="open-personalize-btn" title="Customize details"
+          class="action-btn p-1.5 sm:px-3 sm:py-1.5 rounded-full bg-gradient-to-r from-blue-600/30 to-cyan-500/30 hover:from-blue-600/50 text-cyan-100 text-xs font-semibold border border-cyan-400/40">
+          <i class="fa-solid fa-sliders"></i>
+          <span class="hidden sm:inline ml-1">Edit</span>
+        </button>
+      </div>
+    </div>
+
+    <div class="w-full bg-white/10 h-1 sm:h-1.5 rounded-full mt-2 overflow-hidden cursor-pointer"
+      onclick="nextChapterAction()">
+      <div id="chapter-progress-bar"
+        class="h-full bg-gradient-to-r from-blue-600 via-cyan-400 to-sky-300 transition-all duration-300"
+        style="width: 9.09%;"></div>
+    </div>
+  </header>
+
+  <!-- Main Interactive Container -->
+  <main id="main-interactive-container"
+    class="relative z-10 flex-1 w-full max-w-5xl mx-auto pt-18 sm:pt-22 safe-main-content px-3 sm:px-6 flex flex-col items-center justify-start sm:justify-center">
+
+    <!-- CHAPTER 1: THE WELCOME -->
+    <section id="chapter-1"
+      class="chapter-slide active-chapter flex-col items-center justify-center text-center my-auto py-2 sm:py-4 min-h-[55dvh] sm:min-h-[60dvh]">
+      <div
+        class="inline-flex items-center gap-1.5 sm:gap-2 px-3 sm:px-4 py-1 sm:py-1.5 rounded-full glass-pill text-[10px] sm:text-xs font-semibold text-cyan-200 mb-3 sm:mb-4 border border-cyan-400/30 shadow-[0_0_15px_rgba(56,189,248,0.3)] animate-pulse">
+        <i class="fa-solid fa-sparkles text-amber-300"></i>
+        <span class="tracking-widest uppercase">Chapter 1 • The Beginning</span>
+      </div>
+
+      <h1 class="font-serif text-3xl xs:text-4xl sm:text-6xl md:text-7xl font-extrabold tracking-tight px-1">
+        <span class="bg-gradient-to-b from-white via-cyan-100 to-sky-300 bg-clip-text text-transparent block">
+          Happy Birthday
+        </span>
+        <span id="hero-partner-name"
+          class="font-cursive text-cyan-400 font-normal italic inline-block mt-1 sm:mt-2 text-glow-blue text-4xl xs:text-5xl sm:text-7xl">
+          Papa
+        </span>
+        <i class="fa-solid fa-heart text-cyan-400 text-xl xs:text-2xl sm:text-4xl animate-pulse ml-1 align-middle"></i>
+      </h1>
+
+      <p class="mt-3 sm:mt-4 text-sm xs:text-base sm:text-xl text-sky-100/90 font-light max-w-lg mx-auto px-2">
+        "Today is all about you. I made this entire universe just for you."
+      </p>
+
+      <div class="my-4 sm:my-5">
+        <div id="sensor-circle"
+          class="action-btn w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-gradient-to-tr from-blue-600/40 to-cyan-400/40 border-2 border-cyan-400/60 mx-auto flex items-center justify-center cursor-pointer shadow-[0_0_25px_rgba(56,189,248,0.5)] active:scale-95 transition-all">
+          <i class="fa-solid fa-fingerprint text-xl sm:text-2xl text-cyan-200 animate-pulse"></i>
+        </div>
+        <span class="text-[10px] sm:text-[11px] text-cyan-300/80 font-mono mt-1.5 block">Tap Sensor for Heartbeat Sync
+          💙</span>
+      </div>
+
+      <div class="mt-2 w-full max-w-xs mx-auto">
+        <button onclick="startStoryWithMusic()"
+          class="action-btn next-chapter-btn w-full py-3.5 sm:py-4 px-6 rounded-full bg-gradient-to-r from-blue-600 via-cyan-500 to-sky-400 hover:from-blue-500 hover:to-sky-300 text-white font-bold text-sm sm:text-base shadow-[0_0_30px_rgba(14,140,233,0.7)] transition-all transform active:scale-95 flex items-center justify-center gap-2 sm:gap-3">
+          <i class="fa-solid fa-wand-magic-sparkles text-amber-200"></i>
+          <span>Start Interactive Story ✨</span>
+          <i class="fa-solid fa-arrow-right"></i>
+        </button>
+      </div>
+    </section>
+
+    <!-- CHAPTER 2: SECRET UNLOCK SCREEN -->
+    <section id="chapter-2"
+      class="chapter-slide hidden-chapter flex-col items-center justify-center text-center my-auto py-2 sm:py-4 min-h-[55dvh] sm:min-h-[60dvh]">
+      <div id="unlock-card"
+        class="glass-panel rounded-3xl p-5 sm:p-8 border border-cyan-500/30 shadow-2xl w-full max-w-sm sm:max-w-md mx-auto">
+        <div
+          class="w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-blue-600/20 text-cyan-300 border border-cyan-400/40 flex items-center justify-center mx-auto mb-3 sm:mb-4 animate-pulse">
+          <i id="lock-icon" class="fa-solid fa-lock text-lg sm:text-xl"></i>
+        </div>
+
+        <span
+          class="text-[9px] sm:text-[10px] font-mono uppercase tracking-widest text-cyan-300/80 font-bold block mb-1">CHAPTER
+          2 • THE SECRET VAULT</span>
+        <h2 id="unlock-title" class="font-serif text-xl sm:text-2xl font-bold text-white mb-1 sm:mb-2">Protected With
+          Love</h2>
+        <p class="text-xs text-cyan-200/80 mb-4 sm:mb-5">Enter our special date code or tap Quick Unlock below ❤️</p>
+
+        <form id="unlock-form" class="space-y-3 sm:space-y-4">
+          <div>
+            <div class="flex items-center justify-between text-xs font-semibold text-cyan-300 mb-1">
+              <span>Enter Secret Date Code</span>
+              <button type="button" id="hint-toggle-btn" class="action-btn text-[11px] text-amber-300 hover:underline">
+                <i class="fa-solid fa-lightbulb"></i> Hint?
+              </button>
+            </div>
+
+            <div id="hint-box"
+              class="hidden mb-2 p-2 rounded-lg bg-amber-500/10 border border-amber-400/30 text-amber-200 text-xs">
+              💡 <strong>Hint:</strong> <span id="hint-text">Our special date (2906 or anniversary)</span>
+            </div>
+
+            <input type="text" id="passcode-input" inputmode="numeric" pattern="[0-9]*" placeholder="Enter code..."
+              class="w-full px-3 py-2.5 sm:px-4 sm:py-3 rounded-xl bg-black/40 border border-cyan-500/40 text-white placeholder-cyan-300/30 text-center font-mono text-base sm:text-lg tracking-widest focus:outline-none focus:border-cyan-300" />
+          </div>
+
+          <p id="unlock-error" class="hidden text-xs text-rose-400 font-medium">Wrong passcode, my love! Try the quick
+            unlock below 💕</p>
+
+          <button type="submit"
+            class="action-btn w-full py-3 rounded-xl bg-gradient-to-r from-blue-600 to-cyan-500 text-white font-bold text-xs sm:text-sm shadow-lg shadow-cyan-600/30">
+            <i class="fa-solid fa-key mr-1.5"></i> Unlock Chapter 3
+          </button>
+
+          <button type="button" id="quick-unlock-btn"
+            class="action-btn w-full py-2.5 rounded-xl bg-white/10 hover:bg-white/20 text-cyan-200 text-xs font-bold border border-cyan-400/30 flex items-center justify-center gap-1.5">
+            <i class="fa-solid fa-wand-magic-sparkles text-amber-300"></i>
+            <span>Quick Auto-Unlock (Code: <span id="display-passcode">2906</span>)</span>
+          </button>
+        </form>
+
+        <div id="unlock-success" class="hidden space-y-3 sm:space-y-4">
+          <div class="p-3 rounded-xl bg-emerald-950/50 border border-emerald-500/40 text-emerald-200 text-xs">
+            ✨ <strong>Access Granted!</strong> You hold the key to my heart.
+          </div>
+          <button onclick="goToChapter(3)"
+            class="action-btn next-chapter-btn w-full py-3 sm:py-3.5 rounded-xl bg-gradient-to-r from-emerald-600 to-teal-500 text-white font-bold text-xs sm:text-sm shadow-lg">
+            Proceed To 3D Gift Box <i class="fa-solid fa-arrow-right ml-1"></i>
+          </button>
+        </div>
+
+        <button onclick="goToChapter(3)"
+          class="action-btn text-[11px] text-slate-400 hover:text-cyan-300 underline mt-3 block mx-auto">
+          Skip To Chapter 3 ➔
+        </button>
+      </div>
+    </section>
+
+    <!-- CHAPTER 3: 3D THREE.JS GIFT BOX -->
+    <section id="chapter-3"
+      class="chapter-slide hidden-chapter flex-col items-center justify-center text-center my-auto py-2 sm:py-4 min-h-[55dvh] sm:min-h-[60dvh]">
+      <div
+        class="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full glass-pill text-[10px] sm:text-xs font-semibold text-cyan-300 mb-1.5 border border-cyan-500/30">
+        <i class="fa-solid fa-gift"></i>
+        <span>Chapter 3 • Interactive 3D Gift Box</span>
+      </div>
+      <h2 id="gift-heading" class="font-serif text-xl xs:text-2xl sm:text-4xl font-bold text-white mb-1">A Special Gift
+        For You</h2>
+      <p class="text-[11px] sm:text-xs text-cyan-200/80 mb-2">Drag 360° to inspect, then tap the box to open! 🎁</p>
+
+      <div
+        class="relative w-full max-w-[280px] xs:max-w-xs sm:max-w-sm h-64 xs:h-72 sm:h-80 my-1 mx-auto flex items-center justify-center">
+        <div id="three-gift-container" class="w-full h-full cursor-pointer touch-none"></div>
+        <div
+          class="pointer-events-none absolute bottom-1 left-1/2 -translate-x-1/2 flex items-center gap-1 px-2.5 py-1 rounded-full bg-black/60 backdrop-blur-md border border-white/10 text-[9px] sm:text-[10px] text-cyan-200/80 animate-pulse whitespace-nowrap">
+          <i class="fa-solid fa-arrows-rotate text-amber-300"></i>
+          <span>Touch / Drag to Rotate • Tap to Open</span>
+        </div>
+      </div>
+
+      <div class="flex flex-col xs:flex-row items-center justify-center gap-2.5 mt-2 w-full max-w-xs mx-auto">
+        <button id="open-box-btn"
+          class="action-btn w-full py-2.5 sm:py-3 rounded-full bg-gradient-to-r from-blue-600 to-cyan-500 text-white font-bold text-xs sm:text-sm shadow-lg shadow-cyan-600/40 min-h-[42px]">
+          <i class="fa-solid fa-box-open mr-1"></i> Open Gift Box
+        </button>
+        <button onclick="goToChapter(4)"
+          class="action-btn next-chapter-btn w-full py-2.5 sm:py-3 rounded-full bg-white/10 hover:bg-white/20 text-cyan-200 border border-white/20 text-xs font-semibold flex items-center justify-center gap-1.5 min-h-[42px]">
+          <span>Her Beauty Gallery</span> <i class="fa-solid fa-arrow-right"></i>
+        </button>
+      </div>
+
+      <div id="gift-revealed-banner" class="hidden flex-col items-center gap-2 mt-3 px-2 w-full">
+        <div class="px-4 py-2.5 rounded-2xl glass-panel-glow border border-cyan-400/40 text-center max-w-sm mx-auto">
+          <p class="font-serif italic text-xs sm:text-sm text-cyan-100 font-semibold">"You unlocked my heart 💙 Forever
+            yours."</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- CHAPTER 4: AESTHETIC POLAROID SCRAPBOOK (FOCUSED ON HER BEAUTY) -->
+    <section id="chapter-4"
+      class="chapter-slide hidden-chapter flex-col items-center justify-start sm:justify-center text-center my-auto py-2 sm:py-4 min-h-[55dvh] sm:min-h-[60dvh] w-full">
+      <div
+        class="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full glass-pill text-[10px] sm:text-xs font-semibold text-cyan-300 mb-1.5 border border-cyan-500/30 shadow-[0_0_15px_rgba(56,189,248,0.25)]">
+        <i class="fa-solid fa-camera-retro text-amber-300"></i>
+        <span>Chapter 4 • Her Aesthetic Portraits</span>
+      </div>
+
+      <h2 class="font-serif text-2xl xs:text-3xl sm:text-5xl font-extrabold text-white mb-1.5 px-1">
+        <span class="bg-gradient-to-r from-white via-cyan-100 to-sky-300 bg-clip-text text-transparent">The Queen Of My
+          Heart</span> 👑
+      </h2>
+      <p class="text-xs sm:text-sm text-cyan-200/80 max-w-md mx-auto mb-4 px-2">
+        Every picture of you is a masterpiece that takes my breath away. Tap any photo to expand into HD! 💙
+      </p>
+
+      <div
+        class="no-swipe w-full overflow-x-auto no-scrollbar flex items-center justify-start sm:justify-center gap-1.5 sm:gap-2 mb-5 px-1 py-1">
+        <button
+          class="gallery-filter-btn action-btn whitespace-nowrap shrink-0 px-3 py-1.5 rounded-full text-xs font-semibold transition-all bg-gradient-to-r from-blue-600 to-cyan-500 text-white shadow-md"
+          data-filter="all">
+          <i class="fa-solid fa-sparkles mr-1"></i> All Portraits (6)
+        </button>
+        <button
+          class="gallery-filter-btn action-btn whitespace-nowrap shrink-0 px-3 py-1.5 rounded-full text-xs font-semibold transition-all bg-white/10 hover:bg-white/20 text-cyan-200 border border-cyan-400/30"
+          data-filter="smiles">
+          ✨ Radiant Smiles
+        </button>
+        <button
+          class="gallery-filter-btn action-btn whitespace-nowrap shrink-0 px-3 py-1.5 rounded-full text-xs font-semibold transition-all bg-white/10 hover:bg-white/20 text-cyan-200 border border-cyan-400/30"
+          data-filter="queen">
+          👑 Queen Elegance
+        </button>
+        <button
+          class="gallery-filter-btn action-btn whitespace-nowrap shrink-0 px-3 py-1.5 rounded-full text-xs font-semibold transition-all bg-white/10 hover:bg-white/20 text-cyan-200 border border-cyan-400/30"
+          data-filter="charm">
+          🌸 Pure Angel
+        </button>
+      </div>
+
+      <div id="aesthetic-polaroid-grid"
+        class="w-full grid grid-cols-1 xs:grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 max-w-4xl px-1">
+      </div>
+
+      <div class="mt-6 flex items-center justify-center gap-2.5 w-full max-w-sm mx-auto">
+        <button onclick="goToChapter(3)"
+          class="action-btn px-4 py-2.5 sm:px-5 sm:py-3 rounded-full bg-white/10 hover:bg-white/20 text-cyan-200 text-xs font-semibold shrink-0">
+          <i class="fa-solid fa-chevron-left mr-1"></i> Back
+        </button>
+        <button onclick="goToChapter(5)"
+          class="action-btn next-chapter-btn flex-1 py-2.5 sm:py-3.5 px-4 rounded-full bg-gradient-to-r from-blue-600 via-cyan-500 to-sky-400 text-white text-xs sm:text-sm font-bold shadow-[0_0_25px_rgba(14,140,233,0.7)] active:scale-95 transition-all truncate">
+          <span>Scratch Card</span> <i class="fa-solid fa-arrow-right ml-1"></i>
+        </button>
+      </div>
+    </section>
+
+    <!-- CHAPTER 5: SCRATCH CARD -->
+    <section id="chapter-5"
+      class="chapter-slide hidden-chapter flex-col items-center justify-center text-center my-auto py-2 sm:py-4 min-h-[55dvh] sm:min-h-[60dvh]">
+      <div
+        class="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full glass-pill text-[10px] sm:text-xs font-semibold text-cyan-300 mb-1.5 border border-cyan-500/30">
+        <i class="fa-solid fa-wand-magic-sparkles"></i>
+        <span>Chapter 5 • Interactive Scratch Card</span>
+      </div>
+      <h2 class="font-serif text-xl xs:text-2xl sm:text-3xl font-bold text-white mb-1">Scratch To Reveal</h2>
+      <p class="text-xs text-cyan-200/80 mb-3 sm:mb-4">Use your finger or mouse to scratch the surface! 🪙</p>
+
+      <div
+        class="relative w-[90%] max-w-[280px] xs:max-w-xs sm:max-w-sm h-48 xs:h-52 sm:h-56 rounded-3xl overflow-hidden border-2 border-cyan-400/50 shadow-2xl mx-auto">
+        <div
+          class="absolute inset-0 bg-gradient-to-br from-blue-950 via-slate-900 to-cyan-950 p-4 sm:p-5 flex flex-col items-center justify-center text-center select-none">
+          <span class="text-xl sm:text-2xl mb-1">💎 💙 ✨</span>
+          <h4 class="font-serif text-sm sm:text-base font-bold text-cyan-200 leading-tight">You Are My Greatest Blessing
+          </h4>
+          <p class="text-[10px] sm:text-[11px] text-cyan-100/90 italic font-serif mt-1 leading-relaxed">
+            "Loving you is the easiest, most wonderful thing I have ever done. Happy Birthday my angel."
+          </p>
+          <span class="text-[9px] sm:text-[10px] font-mono text-amber-300 font-bold mt-1.5">★ UNLOCKED FOREVER ★</span>
+        </div>
+        <canvas id="scratch-canvas" class="absolute inset-0 z-10 w-full h-full"></canvas>
+      </div>
+
+      <div class="flex items-center gap-2.5 mt-4 w-full max-w-xs mx-auto justify-center">
+        <button id="reset-scratch-btn"
+          class="action-btn px-3.5 py-2.5 sm:px-4 sm:py-2.5 rounded-full bg-white/10 hover:bg-white/20 text-cyan-200 text-xs font-semibold min-h-[40px]">
+          <i class="fa-solid fa-rotate-left mr-1"></i> Scratch Again
+        </button>
+        <button onclick="goToChapter(6)"
+          class="action-btn next-chapter-btn px-5 py-2.5 sm:px-6 sm:py-2.5 rounded-full bg-gradient-to-r from-blue-600 to-cyan-500 text-white text-xs font-bold shadow-md min-h-[40px]">
+          Next: Love Quiz <i class="fa-solid fa-arrow-right ml-1"></i>
+        </button>
+      </div>
+    </section>
+
+    <!-- CHAPTER 6: QUIZ & ROMANTIC COUPONS -->
+    <section id="chapter-6"
+      class="chapter-slide hidden-chapter flex-col items-center justify-start sm:justify-center text-center my-auto py-2 sm:py-4 min-h-[55dvh] sm:min-h-[60dvh] w-full max-w-xl">
+      <div
+        class="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full glass-pill text-[10px] sm:text-xs font-semibold text-cyan-300 mb-1.5 border border-cyan-500/30">
+        <i class="fa-solid fa-circle-question"></i>
+        <span>Chapter 6 • Couple Love Quiz & VIP Vouchers</span>
+      </div>
+      <h2 class="font-serif text-xl xs:text-2xl font-bold text-white mb-1">A Quick Sweet Question</h2>
+      <p class="text-xs text-cyan-200/80 mb-3 sm:mb-4">Answer honestly to claim your exclusive VIP Birthday Love
+        Coupons! 👑</p>
+
+      <div
+        class="glass-panel rounded-3xl p-4 sm:p-5 border border-cyan-500/30 w-full text-left space-y-2 sm:space-y-2.5">
+        <h4
+          class="font-serif text-xs sm:text-sm md:text-base font-bold text-white text-center mb-2 sm:mb-3 leading-snug">
+          "Who is the most beautiful, adorable person in this world?"</h4>
+
+        <button
+          class="action-btn quiz-choice-btn w-full p-2.5 sm:p-3 rounded-xl bg-black/40 hover:bg-blue-600/30 border border-cyan-500/30 text-left text-xs font-semibold text-cyan-100 flex items-center justify-between transition-all">
+          <span>A) You, today and every single second 💙</span>
+          <i class="fa-solid fa-check opacity-0 text-cyan-300"></i>
+        </button>
+
+        <button
+          class="action-btn quiz-choice-btn w-full p-2.5 sm:p-3 rounded-xl bg-black/40 hover:bg-blue-600/30 border border-cyan-500/30 text-left text-xs font-semibold text-cyan-100 flex items-center justify-between transition-all">
+          <span>B) My girlfriend (the birthday queen) 👑</span>
+          <i class="fa-solid fa-check opacity-0 text-cyan-300"></i>
+        </button>
+
+        <button
+          class="action-btn quiz-choice-btn w-full p-2.5 sm:p-3 rounded-xl bg-black/40 hover:bg-blue-600/30 border border-cyan-500/30 text-left text-xs font-semibold text-cyan-100 flex items-center justify-between transition-all">
+          <span>C) All of the above (1000% Correct) ✨</span>
+          <i class="fa-solid fa-check opacity-0 text-cyan-300"></i>
+        </button>
+      </div>
+
+      <div id="coupons-vault" class="w-full mt-4 sm:mt-5">
+        <span class="text-[11px] sm:text-xs font-mono uppercase tracking-widest text-cyan-300 font-bold block mb-2">🎟️
+          Redeemable VIP Love Vouchers (Tap to Claim)</span>
+        <div class="grid grid-cols-1 xs:grid-cols-2 gap-2 sm:gap-2.5 text-left">
+          <div
+            class="action-btn coupon-item cursor-pointer glass-panel rounded-xl p-2.5 sm:p-3 border border-amber-400/40 relative overflow-hidden"
+            data-coupon="1x Midnight Ice Cream Drive 🍨">
+            <span class="text-[9px] sm:text-[10px] font-mono text-amber-300 font-bold block">VOUCHER #01</span>
+            <h5 class="font-serif text-xs font-bold text-white mt-0.5">Midnight Ice Cream Drive</h5>
+            <span class="claim-tag text-[9px] text-cyan-300/80 block mt-1"><i class="fa-solid fa-stamp"></i> Tap to
+              Claim</span>
+          </div>
+
+          <div
+            class="action-btn coupon-item cursor-pointer glass-panel rounded-xl p-2.5 sm:p-3 border border-pink-400/40 relative overflow-hidden"
+            data-coupon="1x Unlimited Cuddles & Head Massage 💆‍♀️">
+            <span class="text-[9px] sm:text-[10px] font-mono text-pink-300 font-bold block">VOUCHER #02</span>
+            <h5 class="font-serif text-xs font-bold text-white mt-0.5">Unlimited Cuddles & Massage</h5>
+            <span class="claim-tag text-[9px] text-cyan-300/80 block mt-1"><i class="fa-solid fa-stamp"></i> Tap to
+              Claim</span>
+          </div>
+
+          <div
+            class="action-btn coupon-item cursor-pointer glass-panel rounded-xl p-2.5 sm:p-3 border border-cyan-400/40 relative overflow-hidden"
+            data-coupon="1x 'You Win Every Argument' 24H Pass 🏆">
+            <span class="text-[9px] sm:text-[10px] font-mono text-cyan-300 font-bold block">VOUCHER #03</span>
+            <h5 class="font-serif text-xs font-bold text-white mt-0.5">"You Win The Argument" Pass</h5>
+            <span class="claim-tag text-[9px] text-cyan-300/80 block mt-1"><i class="fa-solid fa-stamp"></i> Tap to
+              Claim</span>
+          </div>
+
+          <div
+            class="action-btn coupon-item cursor-pointer glass-panel rounded-xl p-2.5 sm:p-3 border border-emerald-400/40 relative overflow-hidden"
+            data-coupon="1x Candlelight Dinner Wherever You Pick 🕯️">
+            <span class="text-[9px] sm:text-[10px] font-mono text-emerald-300 font-bold block">VOUCHER #04</span>
+            <h5 class="font-serif text-xs font-bold text-white mt-0.5">Dream Candlelight Dinner</h5>
+            <span class="claim-tag text-[9px] text-cyan-300/80 block mt-1"><i class="fa-solid fa-stamp"></i> Tap to
+              Claim</span>
+          </div>
+        </div>
+      </div>
+
+      <button onclick="goToChapter(7)"
+        class="action-btn next-chapter-btn mt-5 px-6 py-2.5 sm:py-3 rounded-full bg-gradient-to-r from-blue-600 to-cyan-500 text-white text-xs sm:text-sm font-bold shadow-lg">
+        Next: Sky Lantern Flight 🏮 <i class="fa-solid fa-arrow-right ml-1"></i>
+      </button>
+    </section>
+
+    <!-- CHAPTER 7: SKY LANTERN & LOVE CAPSULES -->
+    <section id="chapter-7"
+      class="chapter-slide hidden-chapter flex-col items-center justify-start sm:justify-center text-center my-auto py-2 sm:py-4 min-h-[55dvh] sm:min-h-[60dvh] w-full max-w-2xl">
+      <div
+        class="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full glass-pill text-[10px] sm:text-xs font-semibold text-cyan-300 mb-1.5 border border-cyan-500/30">
+        <i class="fa-solid fa-feather text-amber-300"></i>
+        <span>Chapter 7 • Sky Lantern & Love Capsules</span>
+      </div>
+      <h2 class="font-serif text-xl xs:text-2xl sm:text-4xl font-bold text-white mb-1">Release A Midnight Wish 🏮</h2>
+      <p class="text-xs text-cyan-200/80 mb-4 sm:mb-5">Light up your sacred birthday lantern and unlock 4 secret time
+        capsules below!</p>
+
+      <div
+        class="relative w-full max-w-lg glass-panel-glow rounded-3xl p-4 sm:p-8 border border-cyan-400/40 text-center shadow-2xl overflow-hidden mb-5">
+        <div class="relative h-36 xs:h-44 sm:h-52 flex items-center justify-center overflow-hidden">
+          <div id="lantern-flight-actor"
+            class="floating-lantern flex flex-col items-center transition-all duration-1000">
+            <div
+              class="relative w-20 xs:w-24 sm:w-28 h-28 xs:h-32 sm:h-36 bg-gradient-to-t from-amber-500 via-yellow-400 to-amber-200 rounded-t-3xl rounded-b-xl shadow-[0_0_40px_#f59e0b] border-t-2 border-white/60 flex flex-col items-center justify-between py-2 sm:py-3">
+              <span class="text-[9px] sm:text-[10px] font-mono uppercase tracking-widest text-amber-950 font-black">FOR
+                YOU 💙</span>
+              <div class="w-6 h-6 sm:w-8 sm:h-8 rounded-full bg-white/90 blur-[2px] animate-ping"></div>
+              <span class="text-xs">🏮</span>
+            </div>
+            <div class="w-0.5 h-4 sm:h-6 bg-amber-400"></div>
+            <div class="w-2 h-2.5 sm:h-3 bg-red-600 rounded-b-sm"></div>
+          </div>
+          <div class="absolute inset-0 bg-radial from-transparent to-black/60 pointer-events-none"></div>
+        </div>
+
+        <div id="lantern-message-box" class="text-xs sm:text-sm text-cyan-100/90 font-serif italic mb-3 sm:mb-4 px-2">
+          "As this lantern rises into the sky, may every prayer and wish in your heart be answered."
+        </div>
+
+        <button id="release-lantern-btn"
+          class="action-btn px-5 py-2.5 sm:px-7 sm:py-3 rounded-full bg-gradient-to-r from-amber-500 via-yellow-400 to-amber-600 text-amber-950 font-black text-xs sm:text-sm shadow-[0_0_30px_#f59e0b] active:scale-95 transition-all flex items-center justify-center gap-1.5 sm:gap-2 mx-auto min-h-[44px]">
+          <i class="fa-solid fa-fire"></i>
+          <span>Light & Release Sky Lantern 🏮</span>
+        </button>
+      </div>
+
+      <div class="w-full">
+        <span
+          class="text-[11px] sm:text-xs font-mono uppercase tracking-widest text-cyan-300 font-bold block mb-2 sm:mb-3">★
+          4 Secret Time Capsules (Tap Any To Open) ★</span>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5 sm:gap-3 text-left">
+          <div
+            class="action-btn love-capsule cursor-pointer glass-panel rounded-2xl p-3 sm:p-4 border border-cyan-500/30 hover:border-cyan-400 transition-all min-h-[64px]"
+            data-title="A Secret I Never Told You"
+            data-msg="The first time you held my hand, my palms were sweating because I was terrified of messing up that perfect magical moment. I never wanted to let go.">
+            <div class="flex items-center justify-between mb-1">
+              <span class="text-xs font-bold text-white flex items-center gap-1.5"><i
+                  class="fa-solid fa-envelope text-cyan-400"></i> Capsule 1</span>
+              <span class="text-[10px] text-cyan-300 font-mono">Tap to Open</span>
+            </div>
+            <p class="text-[11px] text-cyan-200/80 truncate">A Secret I Never Told You...</p>
+          </div>
+
+          <div
+            class="action-btn love-capsule cursor-pointer glass-panel rounded-2xl p-3 sm:p-4 border border-cyan-500/30 hover:border-cyan-400 transition-all min-h-[64px]"
+            data-title="The Moment I Knew"
+            data-msg="When we were laughing so hard in the car at the silly radio song that our stomachs hurt, I looked at you and realized: I never want to spend a single day without this laugh.">
+            <div class="flex items-center justify-between mb-1">
+              <span class="text-xs font-bold text-white flex items-center gap-1.5"><i
+                  class="fa-solid fa-gem text-amber-300"></i> Capsule 2</span>
+              <span class="text-[10px] text-cyan-300 font-mono">Tap to Open</span>
+            </div>
+            <p class="text-[11px] text-cyan-200/80 truncate">The Exact Moment I Knew...</p>
+          </div>
+
+          <div
+            class="action-btn love-capsule cursor-pointer glass-panel rounded-2xl p-3 sm:p-4 border border-cyan-500/30 hover:border-cyan-400 transition-all min-h-[64px]"
+            data-title="My Favorite Habit of Yours"
+            data-msg="The cute little face you make when you get excited about food, and how you scrunch your nose when you smile genuinely. It melts me completely.">
+            <div class="flex items-center justify-between mb-1">
+              <span class="text-xs font-bold text-white flex items-center gap-1.5"><i
+                  class="fa-solid fa-heart text-rose-400"></i> Capsule 3</span>
+              <span class="text-[10px] text-cyan-300 font-mono">Tap to Open</span>
+            </div>
+            <p class="text-[11px] text-cyan-200/80 truncate">My Favorite Habit of Yours...</p>
+          </div>
+
+          <div
+            class="action-btn love-capsule cursor-pointer glass-panel rounded-2xl p-3 sm:p-4 border border-cyan-500/30 hover:border-cyan-400 transition-all min-h-[64px]"
+            data-title="My Eternal Promise"
+            data-msg="I promise to be your biggest cheerleader when you succeed, your softest pillow when you are tired, and your safest home no matter how chaotic the world gets.">
+            <div class="flex items-center justify-between mb-1">
+              <span class="text-xs font-bold text-white flex items-center gap-1.5"><i
+                  class="fa-solid fa-infinity text-sky-400"></i> Capsule 4</span>
+              <span class="text-[10px] text-cyan-300 font-mono">Tap to Open</span>
+            </div>
+            <p class="text-[11px] text-cyan-200/80 truncate">My Eternal Promise to You...</p>
+          </div>
+        </div>
+      </div>
+
+      <button onclick="goToChapter(8)"
+        class="action-btn next-chapter-btn mt-5 px-6 py-2.5 sm:py-3 rounded-full bg-white/10 hover:bg-white/20 text-cyan-200 border border-white/20 text-xs sm:text-sm font-semibold min-h-[42px]">
+        Proceed To Handwritten Letter <i class="fa-solid fa-arrow-right ml-1"></i>
+      </button>
+    </section>
+
+    <!-- CHAPTER 8: HANDWRITTEN LOVE LETTER & OPEN WHEN ENVELOPES -->
+    <section id="chapter-8"
+      class="chapter-slide hidden-chapter flex-col items-center justify-start sm:justify-center text-center my-auto py-2 sm:py-4 min-h-[55dvh] sm:min-h-[60dvh] w-full max-w-2xl">
+      <div
+        class="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full glass-pill text-[10px] sm:text-xs font-semibold text-cyan-300 mb-1.5 border border-cyan-500/30">
+        <i class="fa-solid fa-envelope-open-text"></i>
+        <span>Chapter 8 • A Letter To Forever & Sealed Envelopes</span>
+      </div>
+      <h2 class="font-serif text-xl xs:text-2xl sm:text-3xl font-bold text-white mb-3 sm:mb-4">Straight From My Soul
+      </h2>
+
+      <div
+        class="glass-panel-glow rounded-3xl p-4 xs:p-5 sm:p-8 border border-cyan-500/40 text-left w-full shadow-2xl relative">
+        <div
+          class="flex items-center justify-between pb-2 sm:pb-3 border-b border-cyan-500/20 mb-3 sm:mb-4 text-[10px] sm:text-xs font-mono text-cyan-300/80">
+          <span>CONFIDENTIAL • TO BE READ WITH LOVE</span>
+          <button id="replay-letter-ch-btn" class="action-btn text-cyan-300 hover:text-white min-h-[36px] px-2 py-1"><i
+              class="fa-solid fa-rotate-left"></i> Replay</button>
+        </div>
+
+        <div id="typewriter-text-ch"
+          class="font-serif text-xs xs:text-sm sm:text-base text-sky-50/95 leading-relaxed sm:leading-loose whitespace-pre-line">
+        </div>
+
+        <div class="mt-4 sm:mt-6 pt-3 sm:pt-4 border-t border-cyan-500/20 flex items-center justify-between">
+          <span id="letter-sig-ch" class="font-cursive text-xl sm:text-3xl text-cyan-300">Yours Forever 💙</span>
+          <span class="text-[9px] sm:text-[10px] text-cyan-300/70"><i class="fa-solid fa-seal"></i> Sealed with
+            Love</span>
+        </div>
+      </div>
+
+      <!-- "Open When..." Sealed Envelopes -->
+      <div class="w-full mt-5">
+        <span class="text-[11px] sm:text-xs font-mono uppercase tracking-widest text-cyan-300 font-bold block mb-2">💌
+          "Open When..." Sealed Wax Envelopes</span>
+        <div class="grid grid-cols-2 sm:grid-cols-4 gap-2">
+          <button
+            class="action-btn open-when-btn glass-panel p-2.5 rounded-xl border border-cyan-500/30 hover:border-cyan-300 text-center min-h-[64px]"
+            data-title="Open When You Miss Me"
+            data-letter="Whenever you miss me, just look up at the sapphire sky and place your hand over your heart. I am always thinking of you, loving you, and wishing I could hold you right now. 💙">
+            <span class="text-base sm:text-lg pointer-events-none">💌</span>
+            <span class="text-[10px] font-bold text-cyan-200 block mt-0.5 pointer-events-none">When You Miss Me</span>
+          </button>
+          <button
+            class="action-btn open-when-btn glass-panel p-2.5 rounded-xl border border-cyan-500/30 hover:border-cyan-300 text-center min-h-[64px]"
+            data-title="Open When You Need A Warm Hug"
+            data-letter="Close your eyes, take a deep breath, and wrap your arms around yourself tight. Imagine me holding you close, kissing your forehead, and whispering that everything will be alright. 🤗">
+            <span class="text-base sm:text-lg pointer-events-none">🧸</span>
+            <span class="text-[10px] font-bold text-cyan-200 block mt-0.5 pointer-events-none">Need A Warm Hug</span>
+          </button>
+          <button
+            class="action-btn open-when-btn glass-panel p-2.5 rounded-xl border border-cyan-500/30 hover:border-cyan-300 text-center min-h-[64px]"
+            data-title="Open When You Can't Sleep"
+            data-letter="Count all the sweet kisses and laughs we have shared until you drift away into sweet dreams. In your dreams tonight, I'll meet you under the stars. 🌙">
+            <span class="text-base sm:text-lg pointer-events-none">✨</span>
+            <span class="text-[10px] font-bold text-cyan-200 block mt-0.5 pointer-events-none">Can't Sleep</span>
+          </button>
+          <button
+            class="action-btn open-when-btn glass-panel p-2.5 rounded-xl border border-cyan-500/30 hover:border-cyan-300 text-center min-h-[64px]"
+            data-title="Open When You Want A Good Laugh"
+            data-letter="Remember: You are the smartest, most gorgeous person in the world... and you chose ME! That proves you have impeccable taste! 😉 Love you crazy! 😂💙">
+            <span class="text-base sm:text-lg pointer-events-none">😂</span>
+            <span class="text-[10px] font-bold text-cyan-200 block mt-0.5 pointer-events-none">Need A Laugh</span>
+          </button>
+        </div>
+      </div>
+
+      <button onclick="goToChapter(9)"
+        class="action-btn next-chapter-btn mt-5 px-6 py-2.5 sm:py-3 rounded-full bg-gradient-to-r from-blue-600 to-cyan-500 text-white text-xs sm:text-sm font-bold shadow-lg min-h-[42px]">
+        Next: Wheel of Love 🎡 <i class="fa-solid fa-arrow-right ml-1"></i>
+      </button>
+    </section>
+
+    <!-- CHAPTER 9: INTERACTIVE WHEEL OF LOVE -->
+    <section id="chapter-9"
+      class="chapter-slide hidden-chapter flex-col items-center justify-center text-center my-auto py-2 sm:py-4 min-h-[55dvh] sm:min-h-[60dvh] w-full max-w-xl">
+      <div
+        class="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full glass-pill text-[10px] sm:text-xs font-semibold text-cyan-300 mb-1.5 border border-cyan-500/30">
+        <i class="fa-solid fa-dharmachakra text-amber-300"></i>
+        <span>Chapter 9 • The Romantic Wheel of Love</span>
+      </div>
+      <h2 class="font-serif text-xl xs:text-2xl sm:text-4xl font-bold text-white mb-1">Spin For A Surprise Date 🎡</h2>
+      <p class="text-xs text-cyan-200/80 mb-3 sm:mb-4">Give the lucky wheel a spin to decide our next romantic date
+        adventure!</p>
+
+      <!-- Wheel Container with Exact Top Pin and Center Spin Button -->
+      <div class="relative w-64 xs:w-72 sm:w-80 h-64 xs:h-72 sm:h-80 mx-auto flex items-center justify-center my-2">
+        <!-- Top indicator pointer pin (12 o'clock, 270 deg) -->
+        <div
+          class="absolute -top-3.5 left-1/2 -translate-x-1/2 z-30 text-amber-400 text-2xl sm:text-3xl drop-shadow-[0_0_12px_#f59e0b] pointer-events-none">
+          <i class="fa-solid fa-location-dot animate-bounce"></i>
+        </div>
+
+        <canvas id="wheel-canvas" width="500" height="500"
+          class="w-full h-full rounded-full shadow-[0_0_40px_rgba(56,189,248,0.5)] border-4 border-cyan-400/70 bg-[#051329] cursor-pointer touch-manipulation"></canvas>
+
+        <button id="spin-wheel-btn"
+          class="action-btn absolute z-20 w-16 h-16 sm:w-18 sm:h-18 rounded-full bg-gradient-to-tr from-blue-600 via-cyan-500 to-sky-300 hover:from-blue-500 hover:to-sky-200 text-white font-black text-xs sm:text-sm shadow-[0_0_25px_rgba(14,140,233,0.9)] border-2 border-white flex flex-col items-center justify-center active:scale-90 transition-all cursor-pointer">
+          <i class="fa-solid fa-rotate text-sm mb-0.5 pointer-events-none"></i>
+          <span class="pointer-events-none">SPIN</span>
+        </button>
+      </div>
+
+      <div id="wheel-result-box"
+        class="hidden mt-3 sm:mt-4 p-3.5 sm:p-4 rounded-2xl glass-panel-glow border border-amber-400/60 max-w-sm mx-auto animate-bounce px-3">
+        <span
+          class="text-[9px] sm:text-[10px] font-mono uppercase tracking-widest text-amber-300 font-bold block mb-1">🎉
+          YOU WON A SURPRISE DATE! 🎉</span>
+        <h4 id="wheel-result-text" class="font-serif text-sm sm:text-base font-bold text-white"></h4>
+      </div>
+
+      <button onclick="goToChapter(10)"
+        class="action-btn next-chapter-btn mt-5 px-6 py-2.5 sm:py-3 rounded-full bg-gradient-to-r from-blue-600 to-cyan-500 text-white text-xs sm:text-sm font-bold shadow-lg min-h-[42px]">
+        Proceed To Birthday Cake 🎂 <i class="fa-solid fa-arrow-right ml-1"></i>
+      </button>
+    </section>
+
+    <!-- CHAPTER 10: CAKE -->
+    <section id="chapter-10"
+      class="chapter-slide hidden-chapter flex-col items-center justify-center text-center my-auto py-2 sm:py-4 min-h-[55dvh] sm:min-h-[60dvh] w-full max-w-md">
+      <div
+        class="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full glass-pill text-[10px] sm:text-xs font-semibold text-cyan-300 mb-1.5 border border-cyan-500/30">
+        <i class="fa-solid fa-cake-candles"></i>
+        <span>Chapter 10 • Make A Wish</span>
+      </div>
+      <h2 class="font-serif text-xl xs:text-2xl sm:text-3xl font-bold text-white mb-1">Blow The Candle</h2>
+      <p class="text-xs text-cyan-200/80 mb-3 sm:mb-4">Close your eyes, make the deepest wish, and blow! 🎂</p>
+
+      <div class="relative my-3 sm:my-4 flex flex-col items-center scale-80 xs:scale-90 sm:scale-100 origin-center">
+        <div class="flex items-end justify-center gap-6 sm:gap-8 mb-[-4px] z-20">
+          <div class="candle-wrapper flex flex-col items-center">
+            <div class="flame-element relative mb-1 flex items-center justify-center">
+              <div
+                class="w-3.5 h-6 sm:w-4 sm:h-7 bg-gradient-to-t from-amber-500 via-yellow-300 to-white rounded-full animate-bounce shadow-[0_0_20px_#f59e0b]">
+              </div>
+            </div>
+            <div class="w-2.5 sm:w-3 h-8 sm:h-10 bg-gradient-to-b from-sky-300 to-blue-500 rounded-t-sm shadow-md">
+            </div>
+          </div>
+          <div class="candle-wrapper flex flex-col items-center">
+            <div class="flame-element relative mb-1 flex items-center justify-center">
+              <div
+                class="w-3.5 h-6 sm:w-4 sm:h-7 bg-gradient-to-t from-amber-500 via-yellow-300 to-white rounded-full animate-bounce shadow-[0_0_20px_#f59e0b]">
+              </div>
+            </div>
+            <div class="w-2.5 sm:w-3 h-8 sm:h-10 bg-gradient-to-b from-cyan-300 to-blue-600 rounded-t-sm shadow-md">
+            </div>
+          </div>
+          <div class="candle-wrapper flex flex-col items-center">
+            <div class="flame-element relative mb-1 flex items-center justify-center">
+              <div
+                class="w-3.5 h-6 sm:w-4 sm:h-7 bg-gradient-to-t from-amber-500 via-yellow-300 to-white rounded-full animate-bounce shadow-[0_0_20px_#f59e0b]">
+              </div>
+            </div>
+            <div class="w-2.5 sm:w-3 h-8 sm:h-10 bg-gradient-to-b from-sky-300 to-blue-500 rounded-t-sm shadow-md">
+            </div>
+          </div>
+        </div>
+
+        <div
+          class="w-32 sm:w-36 h-12 sm:h-14 bg-gradient-to-b from-cyan-400 to-blue-700 rounded-2xl shadow-lg flex items-center justify-center text-xs z-10">
+          <span>🫐 ✨ 🫐</span>
+        </div>
+        <div
+          class="w-48 sm:w-52 h-14 sm:h-16 bg-gradient-to-b from-blue-600 to-indigo-950 rounded-2xl shadow-xl flex items-center justify-center -mt-2 z-5">
+          <span id="cake-name-ch" class="font-cursive text-base sm:text-lg text-cyan-100">Happy Birthday</span>
+        </div>
+        <div
+          class="w-60 sm:w-68 h-16 sm:h-18 bg-gradient-to-b from-blue-900 to-slate-950 rounded-2xl shadow-2xl flex items-center justify-around -mt-2">
+          <span>💙</span><span>💎</span><span>✨</span><span>💎</span><span>💙</span>
+        </div>
+        <div
+          class="w-68 sm:w-76 h-4 sm:h-5 bg-gradient-to-r from-sky-400 via-cyan-200 to-sky-500 rounded-full shadow-lg -mt-1">
+        </div>
+      </div>
+
+      <button id="blow-candle-ch-btn"
+        class="action-btn px-7 py-3 sm:px-8 sm:py-3.5 rounded-full bg-gradient-to-r from-blue-600 via-cyan-500 to-sky-400 text-white font-extrabold text-xs sm:text-sm shadow-[0_0_30px_rgba(14,140,233,0.7)] active:scale-95 transition-all min-h-[46px]">
+        <i class="fa-solid fa-wind mr-1"></i> Blow The Candle 🎂
+      </button>
+
+      <div id="cake-celebration-box-ch" class="hidden flex-col items-center gap-2.5 mt-3 px-2">
+        <div class="p-3.5 sm:p-4 rounded-2xl glass-panel-glow border border-cyan-400/40 text-center max-w-sm">
+          <span class="text-xl sm:text-2xl animate-bounce block mb-1">🎉 🥳 🎂 🎶</span>
+          <h4 class="font-serif text-base sm:text-lg font-bold text-cyan-200">May All Your Dreams Come True!</h4>
+          <p class="text-[10px] sm:text-[11px] text-cyan-100/90 font-light">I am Always be With You</p>
+        </div>
+        <button onclick="goToChapter(11)"
+          class="action-btn next-chapter-btn px-6 py-2.5 rounded-full bg-gradient-to-r from-emerald-600 to-teal-500 text-white text-xs font-bold shadow-md min-h-[40px]">
+          Grand Finale Fireworks <i class="fa-solid fa-arrow-right ml-1"></i>
+        </button>
+      </div>
+    </section>
+
+    <!-- CHAPTER 11: GRAND FINALE -->
+    <section id="chapter-11"
+      class="chapter-slide hidden-chapter flex-col items-center justify-center text-center my-auto py-2 sm:py-4 min-h-[55dvh] sm:min-h-[60dvh] w-full max-w-2xl">
+      <div
+        class="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full glass-pill text-[10px] sm:text-xs font-semibold text-cyan-200 mb-3 animate-pulse shadow-[0_0_20px_rgba(56,189,248,0.4)]">
+        <i class="fa-solid fa-star text-amber-300"></i>
+        <span>Chapter 11 • The Grand Finale</span>
+      </div>
+
+      <h2 class="font-serif text-2xl xs:text-3xl sm:text-5xl md:text-6xl font-black tracking-tight mb-3 px-1">
+        <span class="bg-gradient-to-b from-white via-cyan-100 to-sky-300 bg-clip-text text-transparent block">Happy
+          Birthday,</span>
+        <span id="finale-name-ch"
+          class="font-cursive text-cyan-400 font-normal italic text-glow-blue inline-block mt-0.5 text-3xl xs:text-4xl sm:text-5xl">Papa</span>
+        <i class="fa-solid fa-heart text-cyan-400 text-lg xs:text-2xl sm:text-4xl animate-pulse ml-1 align-middle"></i>
+      </h2>
+
+      <div class="space-y-2.5 max-w-lg mx-auto text-xs sm:text-sm text-sky-100/90 font-light px-2">
+        <p class="p-3 sm:p-3.5 rounded-2xl glass-panel border border-cyan-500/20 italic font-serif">
+          "Thank you for being the most beautiful chapter of my life."
+        </p>
+        <p class="p-3 sm:p-3.5 rounded-2xl glass-panel border border-cyan-500/20 italic font-serif">
+          "No matter where life takes us, you will always be my favorite person and my eternal home."
+        </p>
+      </div>
+
+      <div class="my-3 sm:my-4">
+        <span class="text-[9px] sm:text-[10px] uppercase tracking-widest text-cyan-300/70 font-mono block">With All My
+          Love & Devotion</span>
+        <span id="finale-sig-ch"
+          class="font-cursive text-2xl sm:text-4xl text-cyan-300 font-normal italic inline-block mt-0.5 text-glow-blue">Your
+          Man 💙</span>
+      </div>
+
+      <div class="flex flex-wrap items-center justify-center gap-2.5 mt-2 px-1">
+        <button id="launch-fireworks-btn"
+          class="action-btn px-5 py-2.5 sm:px-6 sm:py-3 rounded-full bg-gradient-to-r from-blue-600 to-cyan-500 text-white font-bold text-xs sm:text-sm shadow-[0_0_30px_rgba(14,140,233,0.7)]">
+          <i class="fa-solid fa-fireworks mr-1"></i> Fireworks 🎆
+        </button>
+
+        <button id="view-cert-btn"
+          class="action-btn px-4 py-2.5 sm:px-5 sm:py-3 rounded-full bg-white/10 hover:bg-white/20 text-cyan-200 border border-cyan-400/40 text-xs sm:text-sm font-semibold">
+          <i class="fa-solid fa-award text-amber-400 mr-1"></i> Certificate 📜
+        </button>
+
+        <button onclick="goToChapter(1)"
+          class="action-btn px-4 py-2.5 sm:px-5 sm:py-3 rounded-full bg-white/10 hover:bg-white/20 text-cyan-200 border border-white/20 text-xs sm:text-sm font-semibold">
+          <i class="fa-solid fa-rotate-left mr-1"></i> Replay
+        </button>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Bottom Navigation Dock -->
+  <nav id="bottom-nav-dock"
+    class="fixed bottom-2 sm:bottom-3 left-1/2 -translate-x-1/2 z-40 w-[96%] max-w-md rounded-full glass-panel-glow safe-nav-dock flex items-center justify-between shadow-2xl">
+    <button onclick="prevChapterAction()" id="hud-prev-chapter" aria-label="Previous Chapter"
+      class="action-btn px-3 py-2 sm:px-4 sm:py-2 rounded-full bg-white/10 hover:bg-white/20 active:scale-90 text-cyan-200 text-xs font-semibold flex items-center gap-1.5 transition-all min-h-[38px]">
+      <i class="fa-solid fa-chevron-left text-[11px]"></i> <span>Prev</span>
+    </button>
+
+    <div id="dots-touch-container"
+      class="flex items-center gap-0.5 sm:gap-1 overflow-x-auto max-w-[170px] xs:max-w-[210px] sm:max-w-[230px] no-scrollbar py-0.5 no-swipe">
+      <button type="button" class="dot-btn p-1.5 sm:p-2 flex items-center justify-center cursor-pointer min-w-[20px] xs:min-w-[24px] min-h-[36px]" onclick="goToChapter(1)" aria-label="Chapter 1">
+        <span class="ch-dot w-2.5 h-2.5 rounded-full bg-cyan-400 shadow-[0_0_8px_#38bdf8] transition-all"></span>
+      </button>
+      <button type="button" class="dot-btn p-1.5 sm:p-2 flex items-center justify-center cursor-pointer min-w-[20px] xs:min-w-[24px] min-h-[36px]" onclick="goToChapter(2)" aria-label="Chapter 2">
+        <span class="ch-dot w-2 h-2 rounded-full bg-white/30 hover:bg-white/60 transition-all"></span>
+      </button>
+      <button type="button" class="dot-btn p-1.5 sm:p-2 flex items-center justify-center cursor-pointer min-w-[20px] xs:min-w-[24px] min-h-[36px]" onclick="goToChapter(3)" aria-label="Chapter 3">
+        <span class="ch-dot w-2 h-2 rounded-full bg-white/30 hover:bg-white/60 transition-all"></span>
+      </button>
+      <button type="button" class="dot-btn p-1.5 sm:p-2 flex items-center justify-center cursor-pointer min-w-[20px] xs:min-w-[24px] min-h-[36px]" onclick="goToChapter(4)" aria-label="Chapter 4">
+        <span class="ch-dot w-2 h-2 rounded-full bg-white/30 hover:bg-white/60 transition-all"></span>
+      </button>
+      <button type="button" class="dot-btn p-1.5 sm:p-2 flex items-center justify-center cursor-pointer min-w-[20px] xs:min-w-[24px] min-h-[36px]" onclick="goToChapter(5)" aria-label="Chapter 5">
+        <span class="ch-dot w-2 h-2 rounded-full bg-white/30 hover:bg-white/60 transition-all"></span>
+      </button>
+      <button type="button" class="dot-btn p-1.5 sm:p-2 flex items-center justify-center cursor-pointer min-w-[20px] xs:min-w-[24px] min-h-[36px]" onclick="goToChapter(6)" aria-label="Chapter 6">
+        <span class="ch-dot w-2 h-2 rounded-full bg-white/30 hover:bg-white/60 transition-all"></span>
+      </button>
+      <button type="button" class="dot-btn p-1.5 sm:p-2 flex items-center justify-center cursor-pointer min-w-[20px] xs:min-w-[24px] min-h-[36px]" onclick="goToChapter(7)" aria-label="Chapter 7">
+        <span class="ch-dot w-2 h-2 rounded-full bg-white/30 hover:bg-white/60 transition-all"></span>
+      </button>
+      <button type="button" class="dot-btn p-1.5 sm:p-2 flex items-center justify-center cursor-pointer min-w-[20px] xs:min-w-[24px] min-h-[36px]" onclick="goToChapter(8)" aria-label="Chapter 8">
+        <span class="ch-dot w-2 h-2 rounded-full bg-white/30 hover:bg-white/60 transition-all"></span>
+      </button>
+      <button type="button" class="dot-btn p-1.5 sm:p-2 flex items-center justify-center cursor-pointer min-w-[20px] xs:min-w-[24px] min-h-[36px]" onclick="goToChapter(9)" aria-label="Chapter 9">
+        <span class="ch-dot w-2 h-2 rounded-full bg-white/30 hover:bg-white/60 transition-all"></span>
+      </button>
+      <button type="button" class="dot-btn p-1.5 sm:p-2 flex items-center justify-center cursor-pointer min-w-[20px] xs:min-w-[24px] min-h-[36px]" onclick="goToChapter(10)" aria-label="Chapter 10">
+        <span class="ch-dot w-2 h-2 rounded-full bg-white/30 hover:bg-white/60 transition-all"></span>
+      </button>
+      <button type="button" class="dot-btn p-1.5 sm:p-2 flex items-center justify-center cursor-pointer min-w-[20px] xs:min-w-[24px] min-h-[36px]" onclick="goToChapter(11)" aria-label="Chapter 11">
+        <span class="ch-dot w-2 h-2 rounded-full bg-white/30 hover:bg-white/60 transition-all"></span>
+      </button>
+    </div>
+
+    <button onclick="nextChapterAction()" id="hud-next-chapter" aria-label="Next Chapter"
+      class="action-btn px-4 py-2 sm:px-4 sm:py-2 rounded-full bg-gradient-to-r from-blue-600 to-cyan-500 text-white text-xs font-bold shadow-md flex items-center gap-1.5 active:scale-90 transition-all min-h-[38px]">
+      <span>Next</span> <i class="fa-solid fa-chevron-right text-[11px]"></i>
+    </button>
+  </nav>
+
+  <!-- MODALS -->
+
+  <!-- Quick Chapter Menu Modal (Accessible on Mobile & Desktop) -->
+  <div id="chapter-menu-modal"
+    class="fixed inset-0 z-50 hidden items-center justify-center p-3 sm:p-4 bg-black/85 backdrop-blur-xl">
+    <div
+      class="relative max-w-sm w-full glass-panel-glow rounded-3xl p-5 border-2 border-cyan-400/50 text-center shadow-2xl max-h-[85dvh] overflow-y-auto">
+      <button onclick="closeChapterMenu()" class="close-modal-btn absolute top-3 right-3 w-9 h-9 rounded-full bg-white/10 hover:bg-white/20 active:scale-90 flex items-center justify-center text-white"><i
+          class="fa-solid fa-xmark text-base"></i></button>
+      <div class="flex items-center justify-center gap-2 mb-2">
+        <i class="fa-solid fa-compass text-cyan-400 text-lg"></i>
+        <h3 class="font-serif text-lg font-bold text-white">Select A Chapter</h3>
+      </div>
+      <p class="text-[11px] text-cyan-200/80 mb-3">Jump directly to any part of your surprise</p>
+      <div class="grid grid-cols-1 gap-1.5 text-left text-xs" id="mobile-chapter-menu-list">
+        <button onclick="goToChapter(1); closeChapterMenu();" class="action-btn p-2.5 rounded-xl bg-white/5 hover:bg-cyan-500/20 active:bg-cyan-500/30 border border-cyan-400/20 text-cyan-100 flex items-center justify-between min-h-[40px]">
+          <span class="font-semibold">1. The Welcome & Heartbeat</span> <i class="fa-solid fa-arrow-right text-[10px] text-cyan-400"></i>
+        </button>
+        <button onclick="goToChapter(2); closeChapterMenu();" class="action-btn p-2.5 rounded-xl bg-white/5 hover:bg-cyan-500/20 active:bg-cyan-500/30 border border-cyan-400/20 text-cyan-100 flex items-center justify-between min-h-[40px]">
+          <span class="font-semibold">2. The Secret Vault</span> <i class="fa-solid fa-arrow-right text-[10px] text-cyan-400"></i>
+        </button>
+        <button onclick="goToChapter(3); closeChapterMenu();" class="action-btn p-2.5 rounded-xl bg-white/5 hover:bg-cyan-500/20 active:bg-cyan-500/30 border border-cyan-400/20 text-cyan-100 flex items-center justify-between min-h-[40px]">
+          <span class="font-semibold">3. 3D Gift Box</span> <i class="fa-solid fa-arrow-right text-[10px] text-cyan-400"></i>
+        </button>
+        <button onclick="goToChapter(4); closeChapterMenu();" class="action-btn p-2.5 rounded-xl bg-white/5 hover:bg-cyan-500/20 active:bg-cyan-500/30 border border-cyan-400/20 text-cyan-100 flex items-center justify-between min-h-[40px]">
+          <span class="font-semibold">4. Cherished Snapshots</span> <i class="fa-solid fa-arrow-right text-[10px] text-cyan-400"></i>
+        </button>
+        <button onclick="goToChapter(5); closeChapterMenu();" class="action-btn p-2.5 rounded-xl bg-white/5 hover:bg-cyan-500/20 active:bg-cyan-500/30 border border-cyan-400/20 text-cyan-100 flex items-center justify-between min-h-[40px]">
+          <span class="font-semibold">5. Scratch Card</span> <i class="fa-solid fa-arrow-right text-[10px] text-cyan-400"></i>
+        </button>
+        <button onclick="goToChapter(6); closeChapterMenu();" class="action-btn p-2.5 rounded-xl bg-white/5 hover:bg-cyan-500/20 active:bg-cyan-500/30 border border-cyan-400/20 text-cyan-100 flex items-center justify-between min-h-[40px]">
+          <span class="font-semibold">6. Quiz & Love Coupons</span> <i class="fa-solid fa-arrow-right text-[10px] text-cyan-400"></i>
+        </button>
+        <button onclick="goToChapter(7); closeChapterMenu();" class="action-btn p-2.5 rounded-xl bg-white/5 hover:bg-cyan-500/20 active:bg-cyan-500/30 border border-cyan-400/20 text-cyan-100 flex items-center justify-between min-h-[40px]">
+          <span class="font-semibold">7. Sky Lantern Flight</span> <i class="fa-solid fa-arrow-right text-[10px] text-cyan-400"></i>
+        </button>
+        <button onclick="goToChapter(8); closeChapterMenu();" class="action-btn p-2.5 rounded-xl bg-white/5 hover:bg-cyan-500/20 active:bg-cyan-500/30 border border-cyan-400/20 text-cyan-100 flex items-center justify-between min-h-[40px]">
+          <span class="font-semibold">8. Handwritten Love Letter</span> <i class="fa-solid fa-arrow-right text-[10px] text-cyan-400"></i>
+        </button>
+        <button onclick="goToChapter(9); closeChapterMenu();" class="action-btn p-2.5 rounded-xl bg-white/5 hover:bg-cyan-500/20 active:bg-cyan-500/30 border border-cyan-400/20 text-cyan-100 flex items-center justify-between min-h-[40px]">
+          <span class="font-semibold">9. Wheel of Love</span> <i class="fa-solid fa-arrow-right text-[10px] text-cyan-400"></i>
+        </button>
+        <button onclick="goToChapter(10); closeChapterMenu();" class="action-btn p-2.5 rounded-xl bg-white/5 hover:bg-cyan-500/20 active:bg-cyan-500/30 border border-cyan-400/20 text-cyan-100 flex items-center justify-between min-h-[40px]">
+          <span class="font-semibold">10. Birthday Cake</span> <i class="fa-solid fa-arrow-right text-[10px] text-cyan-400"></i>
+        </button>
+        <button onclick="goToChapter(11); closeChapterMenu();" class="action-btn p-2.5 rounded-xl bg-white/5 hover:bg-cyan-500/20 active:bg-cyan-500/30 border border-cyan-400/20 text-cyan-100 flex items-center justify-between min-h-[40px]">
+          <span class="font-semibold">11. Grand Finale</span> <i class="fa-solid fa-arrow-right text-[10px] text-cyan-400"></i>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Love Capsule Modal -->
+  <div id="capsule-modal"
+    class="fixed inset-0 z-50 hidden items-center justify-center p-3 sm:p-4 bg-black/90 backdrop-blur-xl">
+    <div
+      class="relative max-w-sm xs:max-w-md w-full glass-panel-glow rounded-3xl p-5 sm:p-8 border-2 border-cyan-400/60 text-center shadow-2xl max-h-[90dvh] overflow-y-auto">
+      <button class="close-modal-btn absolute top-3 right-3 w-9 h-9 rounded-full bg-white/10 hover:bg-white/20 active:scale-90 flex items-center justify-center text-white z-20 cursor-pointer" aria-label="Close modal"><i
+          class="fa-solid fa-xmark text-base"></i></button>
+      <div
+        class="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-cyan-400/20 border border-cyan-400 mx-auto flex items-center justify-center text-cyan-300 mb-2 sm:mb-3">
+        <i class="fa-solid fa-heart text-lg sm:text-xl animate-pulse"></i>
+      </div>
+      <span
+        class="text-[9px] sm:text-[10px] uppercase font-mono tracking-widest text-cyan-400 font-bold block mb-1">SECRET
+        LOVE CAPSULE UNLOCKED</span>
+      <h3 id="capsule-modal-title" class="font-serif text-xl sm:text-2xl font-bold text-white mb-2 sm:mb-3"></h3>
+      <p id="capsule-modal-msg"
+        class="font-serif italic text-xs sm:text-base text-cyan-100/90 leading-relaxed mb-4 sm:mb-6 bg-black/40 p-3 sm:p-4 rounded-2xl border border-cyan-500/30 text-left">
+      </p>
+      <button
+        class="close-modal-btn w-full py-3 rounded-full bg-gradient-to-r from-blue-600 to-cyan-500 text-white font-bold text-xs min-h-[42px] active:scale-95 transition-all">Keep
+        In My Heart 💙</button>
+    </div>
+  </div>
+
+  <!-- "Open When" Envelope Modal -->
+  <div id="open-when-modal"
+    class="fixed inset-0 z-50 hidden items-center justify-center p-3 sm:p-4 bg-black/90 backdrop-blur-xl">
+    <div
+      class="relative max-w-sm xs:max-w-md w-full glass-panel-glow rounded-3xl p-5 sm:p-8 border-2 border-cyan-400/60 text-center shadow-2xl max-h-[90dvh] overflow-y-auto">
+      <button class="close-modal-btn absolute top-3 right-3 w-9 h-9 rounded-full bg-white/10 hover:bg-white/20 active:scale-90 flex items-center justify-center text-white z-20 cursor-pointer" aria-label="Close modal"><i
+          class="fa-solid fa-xmark text-base"></i></button>
+      <div
+        class="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-amber-400/20 border border-amber-400 mx-auto flex items-center justify-center text-amber-300 mb-2 sm:mb-3">
+        <i class="fa-solid fa-envelope-open text-lg sm:text-xl"></i>
+      </div>
+      <span
+        class="text-[9px] sm:text-[10px] uppercase font-mono tracking-widest text-amber-300 font-bold block mb-1">PERSONAL
+        SEALED LETTER</span>
+      <h3 id="open-when-title" class="font-serif text-xl sm:text-2xl font-bold text-white mb-2 sm:mb-3"></h3>
+      <p id="open-when-msg"
+        class="font-serif italic text-xs sm:text-base text-cyan-100/90 leading-relaxed mb-4 sm:mb-6 bg-black/40 p-3 sm:p-4 rounded-2xl border border-cyan-500/30 text-left">
+      </p>
+      <button
+        class="close-modal-btn w-full py-3 rounded-full bg-gradient-to-r from-blue-600 to-cyan-500 text-white font-bold text-xs min-h-[42px] active:scale-95 transition-all">Always
+        Remember This 💙</button>
+    </div>
+  </div>
+
+  <!-- Coupon Claimed Modal -->
+  <div id="coupon-modal"
+    class="fixed inset-0 z-50 hidden items-center justify-center p-3 sm:p-4 bg-black/90 backdrop-blur-xl">
+    <div
+      class="relative max-w-xs xs:max-w-sm w-full glass-panel-glow rounded-3xl p-5 sm:p-6 border-2 border-amber-400/60 text-center shadow-2xl">
+      <button class="close-modal-btn absolute top-3 right-3 w-9 h-9 rounded-full bg-white/10 hover:bg-white/20 active:scale-90 flex items-center justify-center text-white z-20 cursor-pointer" aria-label="Close modal"><i
+          class="fa-solid fa-xmark text-base"></i></button>
+      <div
+        class="w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-amber-500/20 border border-amber-400 mx-auto flex items-center justify-center text-amber-300 mb-2 sm:mb-3 text-xl sm:text-2xl animate-bounce">
+        🎟️</div>
+      <span
+        class="text-[9px] sm:text-[10px] uppercase font-mono tracking-widest text-amber-300 font-bold block mb-1">OFFICIAL
+        VIP VOUCHER CLAIMED</span>
+      <h3 id="coupon-modal-text" class="font-serif text-base sm:text-lg font-bold text-white mb-2 sm:mb-3"></h3>
+      <p class="text-xs text-cyan-200/90 mb-3 sm:mb-4">"This coupon is officially valid anytime, anywhere with no
+        expiration date!"</p>
+      <button
+        class="close-modal-btn w-full py-3 rounded-full bg-gradient-to-r from-amber-500 to-amber-600 text-amber-950 font-black text-xs min-h-[42px] active:scale-95 transition-all">Redeem
+        With A Kiss 💕</button>
+    </div>
+  </div>
+
+  <!-- Certificate Modal -->
+  <div id="certificate-modal"
+    class="fixed inset-0 z-50 hidden items-center justify-center p-3 sm:p-4 bg-black/90 backdrop-blur-xl">
+    <div
+      class="relative max-w-sm xs:max-w-md sm:max-w-lg w-full glass-panel-glow rounded-3xl p-5 sm:p-8 border-2 border-cyan-400/60 text-center shadow-2xl max-h-[90dvh] overflow-y-auto">
+      <button class="close-modal-btn absolute top-3 right-3 w-9 h-9 rounded-full bg-white/10 hover:bg-white/20 active:scale-90 flex items-center justify-center text-white z-20 cursor-pointer" aria-label="Close modal"><i
+          class="fa-solid fa-xmark text-base"></i></button>
+      <div
+        class="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-cyan-400/20 border border-cyan-400 mx-auto flex items-center justify-center text-cyan-300 mb-2 sm:mb-3">
+        <i class="fa-solid fa-award text-lg sm:text-xl"></i>
+      </div>
+      <span
+        class="text-[9px] sm:text-[10px] uppercase font-mono tracking-widest text-cyan-400 font-bold block mb-1">OFFICIAL
+        CERTIFICATE OF ETERNAL LOVE</span>
+      <h3 id="cert-partner-name" class="font-serif text-xl sm:text-2xl font-bold text-white mb-1.5 sm:mb-2">Presented to
+        Papa</h3>
+      <p class="font-serif italic text-xs text-cyan-100/90 leading-relaxed mb-3 sm:mb-4">"This certifies that you hold
+        100% of my heart today on your birthday and every single day that follows."</p>
+      <div
+        class="grid grid-cols-2 gap-2 py-2 sm:py-3 border-y border-cyan-500/30 text-[10px] sm:text-[11px] font-mono text-cyan-200/80 mb-3 sm:mb-4">
+        <div><span class="text-cyan-400 block text-[8px] sm:text-[9px]">DATE</span><span id="cert-date">October
+            06</span></div>
+        <div><span class="text-cyan-400 block text-[8px] sm:text-[9px]">STATUS</span><span id="cert-status"
+            class="text-emerald-400 font-bold">Your Man 💙</span></div>
+      </div>
+      <button
+        class="close-modal-btn w-full py-3 rounded-full bg-gradient-to-r from-blue-600 to-cyan-500 text-white font-bold text-xs min-h-[42px] active:scale-95 transition-all">Keep
+        Close To My Heart 💙</button>
+    </div>
+  </div>
+
+  <!-- Aesthetic Lightbox Modal -->
+  <div id="lightbox-modal"
+    class="fixed inset-0 z-50 hidden items-center justify-center p-3 sm:p-4 bg-black/90 backdrop-blur-2xl">
+    <div
+      class="relative max-w-sm xs:max-w-md sm:max-w-2xl w-full glass-panel-glow rounded-3xl p-4 sm:p-6 text-center border-2 border-cyan-400/50 shadow-2xl max-h-[92dvh] overflow-y-auto">
+      <button
+        class="close-modal-btn absolute top-3 right-3 w-9 h-9 rounded-full bg-white/10 hover:bg-white/20 active:scale-90 flex items-center justify-center text-white z-20 cursor-pointer" aria-label="Close modal"><i
+          class="fa-solid fa-xmark text-base"></i></button>
+
+      <div
+        class="relative w-full h-56 xs:h-64 sm:h-96 rounded-2xl overflow-hidden bg-black/60 mb-3 sm:mb-4 border border-cyan-500/30">
+        <img id="lightbox-img" src="" class="w-full h-full object-cover" />
+        <span id="lightbox-tag"
+          class="absolute top-2.5 left-2.5 sm:top-3 sm:left-3 px-2.5 py-0.5 sm:px-3 sm:py-1 rounded-full bg-black/70 backdrop-blur-md text-[10px] sm:text-[11px] font-bold text-cyan-200 border border-cyan-400/40"></span>
+      </div>
+
+      <h3 id="lightbox-title" class="font-serif text-xl sm:text-2xl font-bold text-white mb-1"></h3>
+      <p id="lightbox-caption"
+        class="text-xs sm:text-sm text-cyan-100/90 italic font-serif leading-relaxed mb-3 sm:mb-4 max-w-lg mx-auto px-1">
+      </p>
+
+      <div class="flex items-center justify-center gap-2.5 pt-2 border-t border-cyan-500/20">
+        <button id="lightbox-like-btn"
+          class="action-btn px-4 py-2.5 sm:px-5 sm:py-2.5 rounded-full bg-gradient-to-r from-pink-600 to-rose-500 text-white text-xs font-bold shadow-md flex items-center gap-1.5 min-h-[40px] active:scale-95 transition-all">
+          <i class="fa-solid fa-heart animate-pulse"></i> <span>Send Love Reaction</span>
+        </button>
+        <button
+          class="close-modal-btn action-btn px-4 py-2.5 sm:px-5 sm:py-2.5 rounded-full bg-white/10 hover:bg-white/20 text-cyan-200 text-xs font-semibold min-h-[40px] active:scale-95 transition-all">
+          Close
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Personalize Drawer (Includes Birthday Date, Photo URLs & Wheel Options Editor) -->
+  <div id="personalize-drawer" class="fixed inset-0 z-50 hidden justify-end bg-black/70 backdrop-blur-sm">
+    <div
+      class="w-full max-w-sm sm:max-w-md bg-[#051329] border-l border-cyan-500/30 p-5 sm:p-6 overflow-y-auto h-full flex flex-col justify-between shadow-2xl">
+      <div>
+        <div class="flex items-center justify-between pb-3 sm:pb-4 border-b border-white/10 mb-4 sm:mb-5">
+          <div class="flex items-center gap-2">
+            <i class="fa-solid fa-wand-magic-sparkles text-amber-300"></i>
+            <h2 class="font-serif text-base sm:text-lg font-bold text-cyan-200">Personalize Surprise</h2>
+          </div>
+          <button id="close-personalize-btn" class="p-1.5 text-cyan-300"><i
+              class="fa-solid fa-xmark text-lg"></i></button>
+        </div>
+
+        <form id="personalize-form" class="space-y-3 sm:space-y-4 text-xs">
+          <div>
+            <label class="block text-cyan-300 font-semibold mb-1">Her Name</label>
+            <input type="text" id="input-partner-name"
+              class="w-full px-3 py-2 rounded-lg bg-black/40 border border-cyan-500/30 text-white" />
+          </div>
+          <div class="grid grid-cols-2 gap-2 sm:gap-3">
+            <div>
+              <label class="block text-cyan-300 font-semibold mb-1">Birthday Date</label>
+              <input type="text" id="input-birthday-date" placeholder="e.g. October 06"
+                class="w-full px-3 py-2 rounded-lg bg-black/40 border border-cyan-500/30 text-white font-medium" />
+            </div>
+            <div>
+              <label class="block text-cyan-300 font-semibold mb-1">Passcode (4-digit)</label>
+              <input type="text" id="input-passcode"
+                class="w-full px-3 py-2 rounded-lg bg-black/40 border border-cyan-500/30 text-cyan-200 font-mono" />
+            </div>
+          </div>
+          <div class="grid grid-cols-2 gap-2 sm:gap-3">
+            <div>
+              <label class="block text-cyan-300 font-semibold mb-1">Start Date</label>
+              <input type="date" id="input-start-date"
+                class="w-full px-3 py-2 rounded-lg bg-black/40 border border-cyan-500/30 text-white" />
+            </div>
+            <div>
+              <label class="block text-cyan-300 font-semibold mb-1">Your Signature</label>
+              <input type="text" id="input-signature"
+                class="w-full px-3 py-2 rounded-lg bg-black/40 border border-cyan-500/30 text-white" />
+            </div>
+          </div>
+          <div>
+            <label class="block text-cyan-300 font-semibold mb-1">Passcode Hint</label>
+            <input type="text" id="input-hint"
+              class="w-full px-3 py-2 rounded-lg bg-black/40 border border-cyan-500/30 text-white" />
+          </div>
+          <div>
+            <label class="block text-cyan-300 font-semibold mb-1">Birthday Letter</label>
+            <textarea id="input-letter" rows="3"
+              class="w-full px-3 py-2 rounded-lg bg-black/40 border border-cyan-500/30 text-white"></textarea>
+          </div>
+
+          <!-- Quick Image URL Editor for Her Portraits -->
+          <div class="pt-2 border-t border-cyan-500/20">
+            <span class="text-cyan-300 font-bold block mb-1.5">📸 Her Photo URLs & Captions</span>
+            <div id="photos-editor-list" class="space-y-2.5"></div>
+          </div>
+
+          <!-- Wheel Segments Customizer -->
+          <div class="pt-2 border-t border-cyan-500/20">
+            <span class="text-cyan-300 font-bold block mb-1.5">🎡 Wheel Date Options (6)</span>
+            <div id="wheel-editor-list" class="space-y-1.5"></div>
+          </div>
+
+          <button type="submit"
+            class="action-btn w-full py-2.5 rounded-lg bg-gradient-to-r from-blue-600 to-cyan-500 text-white font-bold text-xs shadow-md mt-2">
+            Save All Changes 💙
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const defaultData = {
+      partnerName: "Papa",
+      nickname: "Princess",
+      mySignature: "Your Man 💙",
+      birthdayDate: "October 06",
+      specialDatePasscode: "2906",
+      passcodeHint: "Our special date (2906 or anniversary)",
+      relationshipStartDate: "2018-06-04",
+      letterText: `Ithu Ennaku Romba Special pa , \n Yaaro Ne yaaro Naan Yeno Santhithom Yeno Samathithom Natpo Kadhal oh Namai yerthathu thappo sariyo namai serthathu kadaisi varaikum irrupom unnakaga naanum ennakaga neeyum`,
+      memories: [
+        {
+          id: 1,
+          title: "That Radiant Smile",
+          category: "smiles",
+          tag: "Pure Sunshine ☀️",
+          caption: "The breathtaking smile that instantly lights up my whole world and makes every problem vanish.",
+          image: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=800&q=80",
+          likes: 215,
+          rotation: "-1deg"
+        },
+        {
+          id: 2,
+          title: "Eyes Full Of Magic",
+          category: "smiles",
+          tag: "Endless Wonder ✨",
+          caption: "In your eyes, I found my favorite galaxy. One gentle gaze from you and my whole universe stands still.",
+          image: "https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=800&q=80",
+          likes: 380,
+          rotation: "1.5deg"
+        },
+        {
+          id: 3,
+          title: "Effortless Elegance",
+          category: "queen",
+          tag: "My Queen 👑",
+          caption: "The way you carry yourself with unmatched grace, kindness, and royal beauty. You define pure perfection.",
+          image: "https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=800&q=80",
+          likes: 512,
+          rotation: "-1.5deg"
+        },
+        {
+          id: 4,
+          title: "Cute & Playful Charm",
+          category: "charm",
+          tag: "Adorable Angel 🌸",
+          caption: "Your cute little giggles, playful expressions, and pure heart make you the most precious soul on Earth.",
+          image: "https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?auto=format&fit=crop&w=800&q=80",
+          likes: 420,
+          rotation: "1deg"
+        },
+        {
+          id: 5,
+          title: "A Piece Of Heaven",
+          category: "charm",
+          tag: "Pure Serenity 🕊️",
+          caption: "Gentle soul, golden heart, and divine aura. Heaven was feeling generous the day you were born.",
+          image: "https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?auto=format&fit=crop&w=800&q=80",
+          likes: 640,
+          rotation: "-1deg"
+        },
+        {
+          id: 6,
+          title: "The Birthday Queen",
+          category: "queen",
+          tag: "Forever Gorgeous 💎",
+          caption: "More radiant and breathtaking with every single breath. Happy Birthday to the absolute love of my life.",
+          image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=800&q=80",
+          likes: 890,
+          rotation: "1.5deg"
+        }
+      ],
+      wheelSegments: [
+        "Long Bike Drive 🏍️",
+        "Cafe Shop ☕",
+        "Visit a Beach in the Evening 🏖️",
+        "Unlimited Talks with You 💬",
+        "Ice Cream 🍨",
+        "Surprise Gift 🎁"
+      ]
+    };
+
+    let appData = { ...defaultData };
+    try {
+      const saved = localStorage.getItem('birthday_blue_surprise_data');
+      if (saved) {
+        const parsed = JSON.parse(saved);
+        appData = { ...defaultData, ...parsed };
+
+        // Fix outdated date if it was cached as "August 24"
+        if (appData.birthdayDate === "August 24" || !appData.birthdayDate) {
+          appData.birthdayDate = defaultData.birthdayDate;
+        }
+
+        // Ensure wheel segments are updated to the exact 6 user-specified items if older defaults exist
+        if (!appData.wheelSegments || !Array.isArray(appData.wheelSegments) || appData.wheelSegments.length === 0 || appData.wheelSegments[0].includes('Stargazing')) {
+          appData.wheelSegments = [...defaultData.wheelSegments];
+        }
+        if (!appData.memories || !Array.isArray(appData.memories) || appData.memories.length === 0) {
+          appData.memories = [...defaultData.memories];
+        }
+      }
+    } catch (e) { }
+
+    function getPointerPos(e) {
+      const oe = e.originalEvent || e;
+      if (oe.touches && oe.touches.length > 0) {
+        return { x: oe.touches[0].clientX, y: oe.touches[0].clientY };
+      }
+      if (oe.changedTouches && oe.changedTouches.length > 0) {
+        return { x: oe.changedTouches[0].clientX, y: oe.changedTouches[0].clientY };
+      }
+      return { x: e.clientX || 0, y: e.clientY || 0 };
+    }
+
+    class RomanticAudioEngine {
+      constructor() {
+        this.ctx = null;
+        this.isPlaying = false;
+        this.userManuallyStopped = false; // Flag to respect when the user explicitly clicks to turn music OFF
+        // User's custom background music from Audio.mp3
+        this.bgAudio = new Audio('./Audio.mp3');
+        this.bgAudio.loop = true;
+        this.bgAudio.preload = 'auto';
+
+        this.bgAudio.addEventListener('play', () => {
+          this.isPlaying = true;
+          this.updateUI(true);
+        });
+
+        this.bgAudio.addEventListener('pause', () => {
+          this.isPlaying = false;
+          this.updateUI(false);
+        });
+      }
+
+      updateUI(playing) {
+        if (playing) {
+          $('#music-btn-text').text('Music ON 🎵');
+          $('#eq-container').removeClass('hidden').addClass('flex');
+          $('#music-icon').removeClass('fa-volume-xmark').addClass('fa-volume-high text-cyan-300 animate-pulse');
+          $('#music-toggle-btn').removeClass('bg-white/10 border-white/20 text-slate-300').addClass('bg-cyan-500/20 border-cyan-400/40 text-cyan-200 shadow-[0_0_12px_rgba(56,189,248,0.3)]');
+        } else {
+          $('#music-btn-text').text('Music OFF 🔇');
+          $('#eq-container').removeClass('flex').addClass('hidden');
+          $('#music-icon').removeClass('fa-volume-high text-cyan-300 animate-pulse').addClass('fa-volume-xmark text-slate-400');
+          $('#music-toggle-btn').removeClass('bg-cyan-500/20 border-cyan-400/40 text-cyan-200 shadow-[0_0_12px_rgba(56,189,248,0.3)]').addClass('bg-white/10 border-white/20 text-slate-300');
+        }
+      }
+
+      init() {
+        try {
+          if (!this.ctx) {
+            const AudioCtx = window.AudioContext || window.webkitAudioContext;
+            if (AudioCtx) this.ctx = new AudioCtx();
+          }
+          if (this.ctx && this.ctx.state === 'suspended') {
+            this.ctx.resume();
+          }
+        } catch (e) { }
+      }
+
+      toggle() {
+        this.init();
+        if (this.isPlaying) {
+          this.userManuallyStopped = true;
+          this.stop();
+          return false;
+        } else {
+          this.userManuallyStopped = false;
+          this.start();
+          return true;
+        }
+      }
+
+      start() {
+        if (this.userManuallyStopped) return;
+        try {
+          this.init();
+          const playPromise = this.bgAudio.play();
+          if (playPromise !== undefined) {
+            playPromise.then(() => {
+              this.isPlaying = true;
+              this.updateUI(true);
+            }).catch(e => {
+              console.log("Autoplay waiting for first touch/interaction:", e);
+            });
+          }
+        } catch (e) { }
+      }
+
+      stop() {
+        try {
+          this.isPlaying = false;
+          this.bgAudio.pause();
+          this.updateUI(false);
+        } catch (e) { }
+      }
+
+      playNote(freq, vol = 0.2, duration = 2.0, type = 'sine') {
+        try {
+          if (!this.ctx) return;
+          const osc = this.ctx.createOscillator();
+          const gain = this.ctx.createGain();
+          const now = this.ctx.currentTime;
+          osc.type = type;
+          osc.frequency.setValueAtTime(freq, now);
+          gain.gain.setValueAtTime(0.001, now);
+          gain.gain.exponentialRampToValueAtTime(vol, now + 0.04);
+          gain.gain.exponentialRampToValueAtTime(0.0001, now + duration);
+          osc.connect(gain);
+          gain.connect(this.ctx.destination);
+          osc.start(now);
+          osc.stop(now + duration + 0.1);
+        } catch (e) { }
+      }
+      chime() {
+        try {
+          this.init();
+          [523.25, 659.25, 783.99, 1046.50].forEach((f, i) => setTimeout(() => this.playNote(f, 0.18, 1.8), i * 80));
+        } catch (e) { }
+      }
+      pop() { try { this.init(); this.playNote(880, 0.1, 0.1, 'sine'); } catch (e) { } }
+      heartbeat() {
+        try {
+          this.init();
+          this.playNote(85, 0.35, 0.2, 'sine');
+          setTimeout(() => this.playNote(70, 0.28, 0.3, 'sine'), 180);
+        } catch (e) { }
+      }
+      blowCandle() {
+        try {
+          this.init();
+          const bday = [{ f: 261.63, d: 250 }, { f: 261.63, d: 250 }, { f: 293.66, d: 500 }, { f: 261.63, d: 500 }, { f: 349.23, d: 500 }, { f: 329.63, d: 900 }];
+          let delay = 500;
+          bday.forEach(n => {
+            setTimeout(() => this.playNote(n.f, 0.22, n.d / 1000 * 1.5, 'triangle'), delay);
+            delay += n.d;
+          });
+        } catch (e) { }
+      }
+    }
+    const audio = new RomanticAudioEngine();
+
+    function triggerBlueConfetti() {
+      try {
+        if (typeof confetti === 'function') {
+          confetti({ particleCount: 50, spread: 70, origin: { y: 0.7 }, colors: ['#00d2ff', '#38bdf8', '#0284c7', '#ffffff', '#ffd700'] });
+        }
+      } catch (e) { }
+    }
+
+    function triggerFireworks() {
+      try {
+        if (typeof confetti !== 'function') return;
+        const end = Date.now() + 2500;
+        const interval = setInterval(() => {
+          if (Date.now() > end) return clearInterval(interval);
+          confetti({ startVelocity: 25, spread: 360, origin: { x: Math.random() * 0.4 + 0.1, y: Math.random() * 0.5 }, colors: ['#00d2ff', '#38bdf8', '#ffffff', '#ffd700'] });
+          confetti({ startVelocity: 25, spread: 360, origin: { x: Math.random() * 0.4 + 0.5, y: Math.random() * 0.5 }, colors: ['#00d2ff', '#38bdf8', '#ffffff', '#ffd700'] });
+        }, 280);
+      } catch (e) { }
+    }
+
+    function createTouchSparkle(x, y) {
+      if (!x || !y) return;
+      try {
+        const items = ['✨', '💙', '💎', '💫', '💖'];
+        const text = items[Math.floor(Math.random() * items.length)];
+        const $s = $(`<div class="touch-sparkle text-xs sm:text-sm select-none">${text}</div>`);
+        const tx = (Math.random() - 0.5) * 35;
+        const ty = -25 - Math.random() * 25;
+        $s.css({ left: `${x}px`, top: `${y}px`, '--tx': `${tx}px`, '--ty': `${ty}px` });
+        $('body').append($s);
+        setTimeout(() => $s.remove(), 750);
+      } catch (e) { }
+    }
+
+    let currentChapter = 1;
+    const totalChapters = 11;
+
+    window.openChapterMenu = function () {
+      $('#chapter-menu-modal').removeClass('hidden').addClass('flex');
+    };
+
+    window.closeChapterMenu = function () {
+      $('#chapter-menu-modal').removeClass('flex').addClass('hidden');
+    };
+
+    window.goToChapter = function (num) {
+      if (num < 1 || num > totalChapters) return;
+      currentChapter = num;
+      try { audio.chime(); } catch (e) { }
+
+      $('.chapter-slide').addClass('hidden-chapter').removeClass('active-chapter');
+      $(`#chapter-${num}`).removeClass('hidden-chapter').addClass('active-chapter');
+
+      $('#chapter-indicator-text').html(`<span>Chapter ${num} of ${totalChapters}</span> <i class="fa-solid fa-caret-down text-[8px] text-cyan-400"></i>`);
+      const pct = (num / totalChapters) * 100;
+      $('#chapter-progress-bar').css('width', `${pct}%`);
+      $('#quick-chapter-select').val(num);
+
+      $('.ch-dot').each(function (idx) {
+        if (idx + 1 === num) {
+          $(this).removeClass('w-2 h-2 bg-white/30').addClass('w-2.5 h-2.5 bg-cyan-400 shadow-[0_0_8px_#38bdf8]');
+        } else {
+          $(this).removeClass('w-2.5 h-2.5 bg-cyan-400 shadow-[0_0_8px_#38bdf8]').addClass('w-2 h-2 bg-white/30');
+        }
+      });
+
+      try {
+        if (num === 5) initScratchCard();
+        if (num === 8) runTypewriter();
+        if (num === 9) {
+          setTimeout(drawWheel, 50);
+          setTimeout(drawWheel, 200);
+        }
+        if (num === 11) triggerFireworks();
+      } catch (e) { }
+
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    };
+
+    window.startStoryWithMusic = function () {
+      if (!audio.isPlaying) {
+        audio.userManuallyStopped = false;
+        audio.start();
+      }
+      goToChapter(2);
+    };
+
+    window.nextChapterAction = function () {
+      goToChapter(currentChapter + 1);
+    };
+
+    window.prevChapterAction = function () {
+      goToChapter(currentChapter - 1);
+    };
+
+    let scene, camera, renderer, giftGroup, lidGroup, isBoxOpened = false;
+    function init3DBox() {
+      try {
+        const container = document.getElementById('three-gift-container');
+        if (!container || typeof THREE === 'undefined') return;
+        container.innerHTML = '';
+        const w = container.clientWidth || 280, h = container.clientHeight || 260;
+
+        scene = new THREE.Scene();
+        camera = new THREE.PerspectiveCamera(45, w / h, 0.1, 1000);
+        camera.position.set(0, 3.5, 7.5);
+        camera.lookAt(0, 0, 0);
+
+        renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
+        renderer.setSize(w, h);
+        renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+        container.appendChild(renderer.domElement);
+
+        scene.add(new THREE.AmbientLight(0xffffff, 1.4));
+        const light1 = new THREE.PointLight(0x00d2ff, 3, 20); light1.position.set(3, 5, 4); scene.add(light1);
+        const light2 = new THREE.PointLight(0x38bdf8, 3.5, 20); light2.position.set(-3, 4, 3); scene.add(light2);
+
+        giftGroup = new THREE.Group();
+        scene.add(giftGroup);
+
+        const velvetBlue = new THREE.MeshStandardMaterial({ color: 0x074b84, roughness: 0.35, metalness: 0.2 });
+        const ribbonMat = new THREE.MeshStandardMaterial({ color: 0x38bdf8, roughness: 0.2, metalness: 0.8 });
+
+        giftGroup.add(new THREE.Mesh(new THREE.BoxGeometry(1.8, 1.4, 1.8), velvetBlue));
+        giftGroup.add(new THREE.Mesh(new THREE.BoxGeometry(0.25, 1.42, 1.82), ribbonMat));
+        giftGroup.add(new THREE.Mesh(new THREE.BoxGeometry(1.82, 1.42, 0.25), ribbonMat));
+
+        lidGroup = new THREE.Group();
+        lidGroup.position.set(0, 0.7, -0.9);
+        giftGroup.add(lidGroup);
+        const lidMesh = new THREE.Mesh(new THREE.BoxGeometry(1.9, 0.35, 1.9), velvetBlue);
+        lidMesh.position.set(0, 0.175, 0.9);
+        lidGroup.add(lidMesh);
+        const lidRibV = new THREE.Mesh(new THREE.BoxGeometry(0.26, 0.37, 1.92), ribbonMat);
+        lidRibV.position.set(0, 0.175, 0.9);
+        lidGroup.add(lidRibV);
+
+        const bow1 = new THREE.Mesh(new THREE.TorusGeometry(0.28, 0.08, 16, 32), ribbonMat);
+        bow1.position.set(0.18, 0.45, 0.9); bow1.rotation.y = Math.PI / 4; lidGroup.add(bow1);
+        const bow2 = new THREE.Mesh(new THREE.TorusGeometry(0.28, 0.08, 16, 32), ribbonMat);
+        bow2.position.set(-0.18, 0.45, 0.9); bow2.rotation.y = -Math.PI / 4; lidGroup.add(bow2);
+
+        let isDragging = false, prev = { x: 0, y: 0 }, dragDist = 0;
+        $(container).on('mousedown', e => {
+          isDragging = true;
+          dragDist = 0;
+          prev = getPointerPos(e);
+          isInteractingWithComponent = true;
+        });
+
+        container.addEventListener('touchstart', e => {
+          isDragging = true;
+          dragDist = 0;
+          prev = getPointerPos(e);
+          isInteractingWithComponent = true;
+          if (e.cancelable) e.preventDefault();
+        }, { passive: false });
+
+        $(window).on('mousemove', e => {
+          if (!isDragging) return;
+          const pos = getPointerPos(e);
+          const dx = pos.x - prev.x;
+          const dy = pos.y - prev.y;
+          dragDist += Math.abs(dx) + Math.abs(dy);
+          giftGroup.rotation.y += dx * 0.01;
+          prev = pos;
+        });
+
+        window.addEventListener('touchmove', e => {
+          if (!isDragging) return;
+          if (e.cancelable) e.preventDefault();
+          const pos = getPointerPos(e);
+          const dx = pos.x - prev.x;
+          const dy = pos.y - prev.y;
+          dragDist += Math.abs(dx) + Math.abs(dy);
+          giftGroup.rotation.y += dx * 0.01;
+          prev = pos;
+        }, { passive: false });
+
+        const end3DDrag = () => {
+          if (isDragging) {
+            isDragging = false;
+            // If user simply tapped on container without dragging (< 12px), open the box
+            if (dragDist < 12) {
+              open3DGift();
+            }
+          }
+          setTimeout(() => { isInteractingWithComponent = false; }, 120);
+        };
+
+        $(window).on('mouseup', end3DDrag);
+        window.addEventListener('touchend', end3DDrag, { passive: true });
+
+        window.addEventListener('resize', () => {
+          if (!container || !renderer || !camera) return;
+          const rw = container.clientWidth || 280, rh = container.clientHeight || 260;
+          camera.aspect = rw / rh;
+          camera.updateProjectionMatrix();
+          renderer.setSize(rw, rh);
+        });
+
+        function animate() {
+          requestAnimationFrame(animate);
+          if (!isDragging) giftGroup.rotation.y += 0.006;
+          giftGroup.position.y = Math.sin(Date.now() * 0.002) * 0.08;
+          if (isBoxOpened && lidGroup.rotation.x > -Math.PI * 0.65) {
+            lidGroup.rotation.x -= 0.04;
+          }
+          renderer.render(scene, camera);
+        }
+        animate();
+      } catch (e) { }
+    }
+
+    function open3DGift() {
+      if (isBoxOpened) return;
+      isBoxOpened = true;
+      try { audio.chime(); } catch (e) { }
+      triggerBlueConfetti();
+      $('#gift-heading').text("You Unlocked My Heart 💙");
+      $('#open-box-btn').hide();
+      $('#gift-revealed-banner').removeClass('hidden').addClass('flex');
+    }
+
+    function renderAestheticPolaroids(filter = 'all') {
+      const $grid = $('#aesthetic-polaroid-grid').empty();
+      const memoriesList = (appData && Array.isArray(appData.memories)) ? appData.memories : defaultData.memories;
+      const filtered = filter === 'all'
+        ? memoriesList
+        : memoriesList.filter(m => m.category === filter);
+
+      filtered.forEach((m, idx) => {
+        $grid.append(`
+          <div class="polaroid-aesthetic p-3 sm:p-4 flex flex-col justify-between w-full" style="transform: rotate(${m.rotation || '0deg'});">
+            <div class="washi-tape"></div>
+
+            <div class="relative w-full aspect-[4/3] rounded-xl overflow-hidden bg-black/60 mb-2 sm:mb-3 border border-cyan-500/20 group cursor-pointer" onclick="openLightbox(${idx})">
+              <img src="${m.image}" alt="${m.title}" loading="lazy" class="w-full h-full object-cover group-hover:scale-108 transition-transform duration-500 pointer-events-none" />
+              <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-2 sm:p-3 pointer-events-none">
+                <span class="text-[10px] sm:text-[11px] text-cyan-200 font-semibold flex items-center gap-1"><i class="fa-solid fa-magnifying-glass-plus"></i> Tap to view</span>
+              </div>
+              <span class="absolute top-2 right-2 px-2 py-0.5 rounded-full bg-black/70 backdrop-blur-md text-[9px] sm:text-[10px] font-bold text-cyan-200 border border-cyan-400/30 pointer-events-none">${m.tag || '💙'}</span>
+            </div>
+
+            <div class="text-left mt-0.5 cursor-pointer" onclick="openLightbox(${idx})">
+              <h4 class="font-cursive text-lg sm:text-2xl text-cyan-300 font-normal leading-tight truncate">${m.title}</h4>
+              <p class="text-[11px] sm:text-xs text-sky-100/85 font-light mt-0.5 line-clamp-2">${m.caption}</p>
+            </div>
+
+            <div class="flex items-center justify-between pt-2 sm:pt-3 mt-2 sm:mt-3 border-t border-cyan-500/20 text-xs gap-2">
+              <button type="button" class="like-polaroid-btn action-btn flex items-center justify-center gap-1.5 px-3 py-1.5 sm:px-3 sm:py-1 rounded-full bg-white/10 hover:bg-rose-500/20 text-pink-300 border border-pink-400/30 transition-all active:scale-90 min-h-[36px]" data-idx="${idx}">
+                <i class="fa-solid fa-heart text-rose-400 text-xs pointer-events-none"></i>
+                <span class="likes-count font-mono font-bold text-[11px] pointer-events-none">${m.likes}</span>
+              </button>
+
+              <button type="button" class="action-btn text-[10px] sm:text-[11px] text-cyan-300/80 hover:text-cyan-200 flex items-center gap-1 min-h-[36px] px-2 py-1" onclick="openLightbox(${idx})">
+                <span>HD View</span> <i class="fa-solid fa-arrow-up-right-from-square text-[9px] pointer-events-none"></i>
+              </button>
+            </div>
+          </div>
+        `);
+      });
+    }
+
+    let currentLightboxIdx = 0;
+    window.openLightbox = function (idx) {
+      currentLightboxIdx = idx;
+      const m = (appData.memories && appData.memories[idx]) ? appData.memories[idx] : defaultData.memories[idx];
+      if (!m) return;
+      $('#lightbox-img').attr('src', m.image);
+      $('#lightbox-title').text(m.title);
+      $('#lightbox-caption').text(`"${m.caption}"`);
+      $('#lightbox-tag').text(m.tag || '💙 Her Beauty');
+      $('#lightbox-modal').removeClass('hidden').addClass('flex');
+      try { audio.chime(); } catch (e) { }
+    };
+
+    function initScratchCard() {
+      try {
+        const canvas = document.getElementById('scratch-canvas');
+        if (!canvas) return;
+        const ctx = canvas.getContext('2d');
+        const rect = canvas.getBoundingClientRect();
+        canvas.width = rect.width || canvas.offsetWidth || 280;
+        canvas.height = rect.height || canvas.offsetHeight || 210;
+
+        const grad = ctx.createLinearGradient(0, 0, canvas.width, canvas.height);
+        grad.addColorStop(0, '#0284c7');
+        grad.addColorStop(0.5, '#38bdf8');
+        grad.addColorStop(1, '#0369a1');
+        ctx.fillStyle = grad;
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+        ctx.fillStyle = '#ffffff';
+        ctx.font = 'bold 13px "Outfit", sans-serif';
+        ctx.textAlign = 'center';
+        ctx.fillText('✨ Scratch Here With Finger / Mouse ✨', canvas.width / 2, canvas.height / 2);
+
+        let isDrawing = false;
+        function scratch(e) {
+          if (!isDrawing) return;
+          const b = canvas.getBoundingClientRect();
+          const p = getPointerPos(e);
+          const x = p.x - b.left;
+          const y = p.y - b.top;
+
+          ctx.globalCompositeOperation = 'destination-out';
+          ctx.beginPath();
+          ctx.arc(x, y, 24, 0, Math.PI * 2);
+          ctx.fill();
+          try { audio.pop(); } catch (err) { }
+        }
+
+        $(canvas).off();
+        canvas.onmousedown = e => { isDrawing = true; isInteractingWithComponent = true; scratch(e); };
+        canvas.ontouchstart = e => {
+          isDrawing = true;
+          isInteractingWithComponent = true;
+          if (e.cancelable) e.preventDefault();
+          scratch(e);
+        };
+
+        window.onmousemove = scratch;
+        window.addEventListener('touchmove', e => {
+          if (isDrawing) {
+            if (e.cancelable) e.preventDefault();
+            scratch(e);
+          }
+        }, { passive: false });
+
+        const stopScratching = () => {
+          if (isDrawing) {
+            isDrawing = false;
+            setTimeout(() => { isInteractingWithComponent = false; }, 120);
+          }
+        };
+        window.onmouseup = stopScratching;
+        window.addEventListener('touchend', stopScratching, { passive: true });
+      } catch (e) { }
+    }
+
+    let wheelAngle = 0;
+    let isSpinning = false;
+
+    function drawWheel() {
+      try {
+        const canvas = document.getElementById('wheel-canvas');
+        if (!canvas) return;
+        const ctx = canvas.getContext('2d');
+        const segments = (appData && Array.isArray(appData.wheelSegments) && appData.wheelSegments.length > 0)
+          ? appData.wheelSegments
+          : defaultData.wheelSegments;
+        const total = segments.length;
+
+        // Set crisp canvas resolution
+        const size = 500;
+        canvas.width = size;
+        canvas.height = size;
+
+        const arc = (Math.PI * 2) / total;
+        const cx = size / 2;
+        const cy = size / 2;
+        const radius = cx - 12;
+
+        ctx.clearRect(0, 0, size, size);
+
+        // Curated Sapphire & Navy slice palette
+        const sliceColors = [
+          '#07284a',
+          '#0358a1',
+          '#0e8ce9',
+          '#0284c7',
+          '#0369a1',
+          '#074b84'
+        ];
+
+        for (let i = 0; i < total; i++) {
+          const start = i * arc;
+          const end = start + arc;
+
+          // Draw Segment Slice
+          ctx.beginPath();
+          ctx.fillStyle = sliceColors[i % sliceColors.length];
+          ctx.moveTo(cx, cy);
+          ctx.arc(cx, cy, radius, start, end);
+          ctx.closePath();
+          ctx.fill();
+
+          // Slice Divider Border
+          ctx.lineWidth = 3;
+          ctx.strokeStyle = 'rgba(56, 189, 248, 0.75)';
+          ctx.stroke();
+
+          // Draw Text
+          ctx.save();
+          ctx.translate(cx, cy);
+          ctx.rotate(start + arc / 2);
+          ctx.textAlign = 'right';
+          ctx.textBaseline = 'middle';
+
+          // Shadow for maximum readability
+          ctx.shadowColor = 'rgba(0, 0, 0, 0.95)';
+          ctx.shadowBlur = 6;
+          ctx.fillStyle = '#ffffff';
+          ctx.font = 'bold 13px "Outfit", "Plus Jakarta Sans", sans-serif';
+
+          const label = segments[i];
+          ctx.fillText(label, radius - 20, 0);
+          ctx.restore();
+        }
+
+        // Outer Decorative Glowing Ring
+        ctx.beginPath();
+        ctx.arc(cx, cy, radius, 0, Math.PI * 2);
+        ctx.lineWidth = 6;
+        ctx.strokeStyle = '#38bdf8';
+        ctx.shadowColor = '#00d2ff';
+        ctx.shadowBlur = 15;
+        ctx.stroke();
+
+        // Center Hub Ring
+        ctx.beginPath();
+        ctx.arc(cx, cy, 38, 0, Math.PI * 2);
+        ctx.fillStyle = '#051329';
+        ctx.shadowBlur = 0;
+        ctx.fill();
+        ctx.lineWidth = 3;
+        ctx.strokeStyle = '#38bdf8';
+        ctx.stroke();
+
+      } catch (e) {
+        console.error('Wheel render error:', e);
+      }
+    }
+
+    function spinWheel() {
+      if (isSpinning) return;
+      isSpinning = true;
+      try { audio.chime(); } catch (e) { }
+      $('#wheel-result-box').addClass('hidden');
+
+      const segments = (appData && Array.isArray(appData.wheelSegments) && appData.wheelSegments.length > 0)
+        ? appData.wheelSegments
+        : defaultData.wheelSegments;
+
+      const total = segments.length;
+      const segmentAngle = 360 / total;
+
+      // Pick random winning index
+      const winIdx = Math.floor(Math.random() * total);
+
+      // Math:
+      // Slice i center is at angle (i + 0.5) * segmentAngle on canvas.
+      // Top pin is at 12 o'clock (270 degrees in canvas standard coords).
+      // Target normalized angle = 270 - (winIdx + 0.5) * segmentAngle.
+      const desiredNormalized = ((270 - (winIdx + 0.5) * segmentAngle) % 360 + 360) % 360;
+
+      // Current rotation angle normalized
+      const currentNormalized = ((wheelAngle % 360) + 360) % 360;
+
+      // Calculate clockwise forward rotation needed
+      let forwardDiff = (desiredNormalized - currentNormalized + 360) % 360;
+      if (forwardDiff < 60) {
+        forwardDiff += 360;
+      }
+
+      // Add 5 to 7 full extra dramatic spins (1800 to 2520 deg)
+      const fullSpins = (Math.floor(Math.random() * 3) + 5) * 360;
+
+      wheelAngle += fullSpins + forwardDiff;
+
+      $('#wheel-canvas').css({
+        'transition': 'transform 4.2s cubic-bezier(0.12, 0.85, 0.18, 1)',
+        'transform': `rotate(${wheelAngle}deg)`
+      });
+
+      setTimeout(() => {
+        isSpinning = false;
+        try { audio.chime(); } catch (e) { }
+        triggerBlueConfetti();
+        triggerFireworks();
+        $('#wheel-result-text').html(`✨ <span class="text-cyan-300 font-bold text-base sm:text-lg">${segments[winIdx]}</span> ✨`);
+        $('#wheel-result-box').removeClass('hidden');
+      }, 4300);
+    }
+
+    let typewriterTimeout;
+    function runTypewriter() {
+      clearTimeout(typewriterTimeout);
+      const $el = $('#typewriter-text-ch').empty();
+      const text = appData.letterText || defaultData.letterText;
+      let i = 0;
+      function step() {
+        if (i < text.length) {
+          $el.text(text.substring(0, i + 1));
+          if (i % 4 === 0) try { audio.pop(); } catch (e) { }
+          i++;
+          typewriterTimeout = setTimeout(step, 18);
+        }
+      }
+      step();
+    }
+
+    function populatePhotosEditor() {
+      const $list = $('#photos-editor-list').empty();
+      const list = (appData && Array.isArray(appData.memories)) ? appData.memories : defaultData.memories;
+      list.forEach((m, idx) => {
+        $list.append(`
+          <div class="p-2.5 rounded-lg bg-black/50 border border-cyan-500/20 space-y-1.5">
+            <div class="flex items-center justify-between">
+              <span class="font-bold text-cyan-200">Photo #${idx + 1}: ${m.title}</span>
+              <span class="text-[10px] text-cyan-400">${m.tag}</span>
+            </div>
+            <div>
+              <label class="text-[10px] text-cyan-300 block">Image URL / Link</label>
+              <input type="text" class="edit-photo-img w-full px-2 py-1 rounded bg-black/40 border border-cyan-500/30 text-cyan-100 text-[11px]" data-idx="${idx}" value="${m.image}" />
+            </div>
+            <div>
+              <label class="text-[10px] text-cyan-300 block">Poetic Caption for Her</label>
+              <input type="text" class="edit-photo-caption w-full px-2 py-1 rounded bg-black/40 border border-cyan-500/30 text-white text-[11px]" data-idx="${idx}" value="${m.caption}" />
+            </div>
+          </div>
+        `);
+      });
+    }
+
+    function populateWheelEditor() {
+      const $list = $('#wheel-editor-list').empty();
+      const segments = (appData && Array.isArray(appData.wheelSegments)) ? appData.wheelSegments : defaultData.wheelSegments;
+      segments.forEach((seg, idx) => {
+        $list.append(`
+          <div class="flex items-center gap-2">
+            <span class="text-[11px] font-mono text-cyan-400 font-bold w-4">${idx + 1}.</span>
+            <input type="text" class="edit-wheel-segment w-full px-2 py-1 rounded bg-black/40 border border-cyan-500/30 text-cyan-100 text-[11px]" data-idx="${idx}" value="${seg}" />
+          </div>
+        `);
+      });
+    }
+
+    function renderApp() {
+      try {
+        $('#nav-partner-name').text(`For ${appData.partnerName} 💙`);
+        $('#hero-partner-name').text(appData.partnerName);
+        $('#cake-name-ch').text(`Happy Birthday ${appData.partnerName}`);
+        $('#finale-name-ch').text(appData.partnerName);
+        $('#cert-partner-name').text(`Presented to ${appData.partnerName}`);
+        $('#finale-sig-ch').text(appData.mySignature);
+        $('#letter-sig-ch').text(appData.mySignature);
+        $('#cert-status').text(appData.mySignature);
+        $('#display-passcode').text(appData.specialDatePasscode);
+        $('#hint-text').text(appData.passcodeHint);
+        $('#cert-date').text(appData.birthdayDate);
+
+        renderAestheticPolaroids('all');
+        drawWheel();
+      } catch (e) { }
+    }
+
+    $(document).ready(() => {
+      renderApp();
+      init3DBox();
+
+      setTimeout(drawWheel, 100);
+      setTimeout(drawWheel, 400);
+      window.addEventListener('resize', drawWheel);
+
+      // Default Autoplay immediately on open
+      audio.start();
+
+      // Immediate fallback listeners on first user touch/scroll/click/movement
+      const autoPlayTrigger = () => {
+        if (!audio.isPlaying && !audio.userManuallyStopped) {
+          audio.start();
+        }
+      };
+      ['click', 'touchstart', 'pointerdown', 'mousemove', 'scroll', 'keydown'].forEach(evt => {
+        window.addEventListener(evt, autoPlayTrigger, { passive: true });
+      });
+
+      for (let i = 0; i < 20; i++) {
+        const symbol = i % 3 === 0 ? '✨' : i % 3 === 1 ? '💙' : '💎';
+        const left = (i * 5.2 + Math.random() * 2) % 100;
+        const delay = (i * 0.6) % 12;
+        const duration = 9 + (i % 6);
+        $('#particles-container').append(`
+          <div class="floating-particle text-center select-none" style="left: ${left}%; animation-delay: ${delay}s; animation-duration: ${duration}s; font-size: 14px; opacity: 0.35;">
+            ${symbol}
+          </div>
+        `);
+      }
+
+      $(window).on('mousemove', e => {
+        $('#cursor-dot').css({ left: `${e.clientX}px`, top: `${e.clientY}px` });
+      });
+
+      $(document).on('click', e => {
+        const p = getPointerPos(e);
+        createTouchSparkle(p.x, p.y);
+      });
+
+      $(window).on('keydown', e => {
+        if (e.key === 'ArrowRight' || e.key === ' ') nextChapterAction();
+        if (e.key === 'ArrowLeft') prevChapterAction();
+      });
+
+      // Mobile Touch Gestures (Intelligent Swipe Detection that ignores interactive components)
+      let touchStartX = 0, touchStartY = 0, touchStartTime = 0;
+      let isInteractingWithComponent = false;
+
+      function shouldIgnoreSwipe(target) {
+        if (!target) return false;
+        return !!target.closest(
+          'button, a, input, textarea, select, canvas, #three-gift-container, ' +
+          '#scratch-canvas, #wheel-canvas, .no-swipe, .glass-panel-glow, ' +
+          '[role="dialog"], #personalize-drawer, #chapter-menu-modal, .coupon-item, ' +
+          '.love-capsule, .open-when-btn, .quiz-choice-btn, .like-polaroid-btn, ' +
+          '#sensor-circle, #dots-touch-container, .dot-btn, .action-btn'
+        );
+      }
+
+      document.addEventListener('touchstart', e => {
+        if (!e.touches || !e.touches[0]) return;
+        if (shouldIgnoreSwipe(e.target)) {
+          isInteractingWithComponent = true;
+          return;
+        }
+        isInteractingWithComponent = false;
+        touchStartX = e.touches[0].clientX;
+        touchStartY = e.touches[0].clientY;
+        touchStartTime = Date.now();
+      }, { passive: true });
+
+      document.addEventListener('touchend', e => {
+        if (isInteractingWithComponent) {
+          isInteractingWithComponent = false;
+          return;
+        }
+        if (!e.changedTouches || !e.changedTouches[0]) return;
+        const duration = Date.now() - touchStartTime;
+        if (duration > 450) return; // Ignore slow drags or long presses
+
+        const touchEndX = e.changedTouches[0].clientX;
+        const touchEndY = e.changedTouches[0].clientY;
+        const diffX = touchEndX - touchStartX;
+        const diffY = touchEndY - touchStartY;
+
+        // Require clean deliberate horizontal swipe (distance > 70px, and horizontal displacement at least 1.7x vertical)
+        if (Math.abs(diffX) > 70 && Math.abs(diffX) > Math.abs(diffY) * 1.7) {
+          if (diffX < 0) {
+            nextChapterAction();
+          } else {
+            prevChapterAction();
+          }
+        }
+      }, { passive: true });
+
+      $('#sensor-circle').on('click', function () {
+        try { audio.heartbeat(); } catch (e) { }
+        if (!audio.isPlaying && !audio.userManuallyStopped) audio.start();
+        triggerBlueConfetti();
+        $(this).addClass('scale-110 border-cyan-300 shadow-[0_0_40px_#38bdf8]');
+        setTimeout(() => $(this).removeClass('scale-110 border-cyan-300 shadow-[0_0_40px_#38bdf8]'), 400);
+      });
+
+      // Simple Click-to-Toggle Music ON / OFF
+      $('#music-toggle-btn').on('click', () => {
+        audio.toggle();
+      });
+
+      $('#unlock-form').on('submit', e => {
+        e.preventDefault();
+        const val = $('#passcode-input').val().trim().toLowerCase();
+        const pass = appData.specialDatePasscode.trim().toLowerCase();
+        if (val === pass || val === 'love' || val === '2906') {
+          try { audio.chime(); } catch (err) { }
+          triggerBlueConfetti();
+          $('#unlock-form').hide();
+          $('#unlock-success').removeClass('hidden');
+          $('#lock-icon').removeClass('fa-lock').addClass('fa-lock-open');
+          $('#unlock-title').text('Access Granted 💙');
+        } else {
+          try { audio.pop(); } catch (err) { }
+          $('#unlock-error').removeClass('hidden');
+          $('#unlock-card').addClass('animate-shake');
+          setTimeout(() => $('#unlock-card').removeClass('animate-shake'), 400);
+        }
+      });
+      $('#hint-toggle-btn').on('click', () => $('#hint-box').toggleClass('hidden'));
+      $('#quick-unlock-btn').on('click', () => {
+        $('#passcode-input').val(appData.specialDatePasscode);
+        $('#unlock-form').submit();
+      });
+
+      $('#three-gift-container, #open-box-btn').on('click', open3DGift);
+
+      $('.gallery-filter-btn').on('click', function () {
+        const filter = $(this).data('filter');
+        $('.gallery-filter-btn').removeClass('bg-gradient-to-r from-blue-600 to-cyan-500 text-white shadow-md').addClass('bg-white/10 text-cyan-200 border border-cyan-400/30');
+        $(this).removeClass('bg-white/10 text-cyan-200 border border-cyan-400/30').addClass('bg-gradient-to-r from-blue-600 to-cyan-500 text-white shadow-md');
+        renderAestheticPolaroids(filter);
+        try { audio.pop(); } catch (e) { }
+      });
+
+      $(document).on('click', '.like-polaroid-btn', function (e) {
+        e.stopPropagation();
+        const idx = $(this).data('idx');
+        if (appData.memories && appData.memories[idx]) {
+          appData.memories[idx].likes += 1;
+          $(this).find('.likes-count').text(appData.memories[idx].likes);
+          try { audio.pop(); } catch (err) { }
+          const p = getPointerPos(e);
+          createTouchSparkle(p.x, p.y);
+          $(this).addClass('bg-pink-600 text-white');
+        }
+      });
+
+      $('#lightbox-like-btn').on('click', function () {
+        if (appData.memories && appData.memories[currentLightboxIdx]) {
+          appData.memories[currentLightboxIdx].likes += 1;
+          renderAestheticPolaroids();
+          try { audio.chime(); } catch (e) { }
+          triggerBlueConfetti();
+          $(this).html('<i class="fa-solid fa-heart text-white"></i> Sent With Love! 💖');
+        }
+      });
+
+      $('#reset-scratch-btn').on('click', initScratchCard);
+
+      $('.quiz-choice-btn').on('click', function () {
+        try { audio.chime(); } catch (e) { }
+        triggerBlueConfetti();
+        $('.quiz-choice-btn').removeClass('border-emerald-400 bg-emerald-950/40');
+        $(this).addClass('border-emerald-400 bg-emerald-950/40').find('i').removeClass('opacity-0');
+      });
+
+      $(document).on('click', '.coupon-item', function () {
+        const name = $(this).data('coupon');
+        $('#coupon-modal-text').text(name);
+        $('#coupon-modal').removeClass('hidden').addClass('flex');
+        try { audio.chime(); } catch (e) { }
+        triggerBlueConfetti();
+        $(this).find('.claim-tag').html('<i class="fa-solid fa-check-double text-emerald-400"></i> <strong class="text-emerald-300">CLAIMED!</strong>');
+      });
+
+      $(document).on('click', '.open-when-btn', function () {
+        const title = $(this).data('title');
+        const msg = $(this).data('letter');
+        $('#open-when-title').text(title);
+        $('#open-when-msg').text(`"${msg}"`);
+        $('#open-when-modal').removeClass('hidden').addClass('flex');
+        try { audio.chime(); } catch (e) { }
+        triggerBlueConfetti();
+      });
+
+      $('#release-lantern-btn').on('click', function () {
+        try { audio.chime(); } catch (e) { }
+        triggerBlueConfetti();
+        const $lantern = $('#lantern-flight-actor');
+        $lantern.removeClass('floating-lantern');
+        gsap.to($lantern, {
+          y: -260,
+          scale: 0.4,
+          opacity: 0,
+          duration: 2.2,
+          ease: "power2.inOut",
+          onComplete: function () {
+            triggerFireworks();
+            $('#lantern-message-box').html('<span class="text-amber-300 font-bold text-sm sm:text-base block">✨ Your Wish Has Ascended Into The Stars! 🏮</span><span class="text-xs text-cyan-200">May every dream of yours bloom into reality.</span>');
+            $('#release-lantern-btn').hide();
+          }
+        });
+      });
+
+      $(document).on('click', '.love-capsule', function () {
+        const title = $(this).data('title');
+        const msg = $(this).data('msg');
+        $('#capsule-modal-title').text(title);
+        $('#capsule-modal-msg').text(`"${msg}"`);
+        $('#capsule-modal').removeClass('hidden').addClass('flex');
+        try { audio.chime(); } catch (e) { }
+        triggerBlueConfetti();
+      });
+
+      $('#replay-letter-ch-btn').on('click', runTypewriter);
+
+      $('#spin-wheel-btn, #wheel-canvas').on('click', function (e) {
+        e.preventDefault();
+        spinWheel();
+      });
+
+      $('#blow-candle-ch-btn').on('click', function () {
+        try { audio.blowCandle(); } catch (e) { }
+        $('.flame-element').html('<div class="w-1.5 h-5 bg-slate-400 rounded-full opacity-60"></div>');
+        setTimeout(() => {
+          triggerFireworks();
+          triggerBlueConfetti();
+          $('#blow-candle-ch-btn').hide();
+          $('#cake-celebration-box-ch').removeClass('hidden').addClass('flex');
+        }, 500);
+      });
+
+      $('#launch-fireworks-btn').on('click', () => { try { audio.chime(); } catch (e) { } triggerFireworks(); });
+      $('#view-cert-btn').on('click', () => { $('#certificate-modal').removeClass('hidden').addClass('flex'); try { audio.chime(); } catch (e) { } });
+
+      $('.close-modal-btn').on('click', () => {
+        $('#certificate-modal, #lightbox-modal, #capsule-modal, #open-when-modal, #coupon-modal, #chapter-menu-modal').removeClass('flex').addClass('hidden');
+      });
+
+      // Backdrop tap-to-close on all modals and personalize drawer
+      $('#certificate-modal, #lightbox-modal, #capsule-modal, #open-when-modal, #coupon-modal, #chapter-menu-modal, #personalize-drawer').on('click', function (e) {
+        if (e.target === this) {
+          $(this).removeClass('flex').addClass('hidden');
+        }
+      });
+
+      // Mobile keyboard auto-scroll for passcode input
+      $('#passcode-input').on('focus', function () {
+        setTimeout(() => {
+          this.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }, 300);
+      });
+
+      $('#open-personalize-btn').on('click', () => {
+        $('#input-partner-name').val(appData.partnerName);
+        $('#input-birthday-date').val(appData.birthdayDate);
+        $('#input-passcode').val(appData.specialDatePasscode);
+        $('#input-start-date').val(appData.relationshipStartDate);
+        $('#input-hint').val(appData.passcodeHint);
+        $('#input-signature').val(appData.mySignature);
+        $('#input-letter').val(appData.letterText);
+        populatePhotosEditor();
+        populateWheelEditor();
+        $('#personalize-drawer').removeClass('hidden').addClass('flex');
+      });
+      $('#close-personalize-btn').on('click', () => $('#personalize-drawer').removeClass('flex').addClass('hidden'));
+
+      $('#personalize-form').on('submit', e => {
+        e.preventDefault();
+        appData.partnerName = $('#input-partner-name').val().trim() || 'Papa';
+        appData.birthdayDate = $('#input-birthday-date').val().trim() || defaultData.birthdayDate;
+        appData.specialDatePasscode = $('#input-passcode').val().trim() || '2906';
+        appData.relationshipStartDate = $('#input-start-date').val() || '2018-06-04';
+        appData.passcodeHint = $('#input-hint').val().trim() || 'Our special date';
+        appData.mySignature = $('#input-signature').val().trim() || 'Your Man 💙';
+        appData.letterText = $('#input-letter').val().trim() || defaultData.letterText;
+
+        // Save custom photos and captions
+        $('.edit-photo-img').each(function () {
+          const idx = $(this).data('idx');
+          const val = $(this).val().trim();
+          if (val && appData.memories[idx]) appData.memories[idx].image = val;
+        });
+        $('.edit-photo-caption').each(function () {
+          const idx = $(this).data('idx');
+          const val = $(this).val().trim();
+          if (val && appData.memories[idx]) appData.memories[idx].caption = val;
+        });
+
+        // Save custom wheel segments
+        const updatedSegs = [];
+        $('.edit-wheel-segment').each(function () {
+          const val = $(this).val().trim();
+          if (val) updatedSegs.push(val);
+        });
+        if (updatedSegs.length === 6) {
+          appData.wheelSegments = updatedSegs;
+        }
+
+        try { localStorage.setItem('birthday_blue_surprise_data', JSON.stringify(appData)); } catch (e) { }
+        renderApp();
+        drawWheel();
+        $('#personalize-drawer').removeClass('flex').addClass('hidden');
+        try { audio.chime(); } catch (err) { }
+      });
+    });
+  </script>
+</body>
+
+</html>
